@@ -6,11 +6,20 @@ Reference
 
 Technical reference material.
 
+.. toctree::
+    :maxdepth: 1
 
-.. autosummary::
-    :toctree: generated
-    
-    cms.constants
-    cms.api
-    cms.app_base
-
+    api_references
+    cli
+    configuration
+    fields
+    navigation
+    pages
+    permissions
+    placeholders
+    plugins
+    sitemaps
+    templatetags
+    titles
+    toolbar
+    wizards

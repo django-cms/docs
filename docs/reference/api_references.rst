@@ -16,7 +16,7 @@ module do sanity checks on arguments.
              possible, however permission checks should be implemented manually
              before calling any of these functions.
 
-.. info:: Due to potential circular dependency issues, it's recommended
+.. note:: Due to potential circular dependency issues, it's recommended
           to import the api in the functions that uses its function.
 
           e.g. use:
@@ -43,6 +43,8 @@ Functions and constants
 .. module:: cms.api
 
 .. autofunction:: cms.api.create_page
+
+.. autofunction:: cms.api.create_page_content
 
 .. autofunction:: cms.api.create_title
 
@@ -89,19 +91,17 @@ cms.constants
 
 .. autodata:: VISIBILITY_ANONYMOUS
 
-..  autodata:: TEMPLATE_INHERITANCE_MAGIC
+.. autodata:: TEMPLATE_INHERITANCE_MAGIC
 
-..  autodata:: LEFT
+.. autodata:: LEFT
      :no-value:
 
-..  autodata:: RIGHT
+.. autodata:: RIGHT
      :no-value:
 
-..  autodata:: REFRESH
+.. autodata:: EXPIRE_NOW
 
-..  autodata:: EXPIRE_NOW
-
-..  autodata:: MAX_EXPIRATION_TTL
+.. autodata:: MAX_EXPIRATION_TTL
 
 
 ************
