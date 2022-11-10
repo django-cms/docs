@@ -2,13 +2,9 @@
 Plugins
 #######
 
-**********************************************
-CMSPluginBase Attributes and Methods Reference
-**********************************************
-
 .. autoclass:: cms.plugin_base.CMSPluginBase
   :members:
-  
+
   ..  method:: get_render_template(self, context, instance, placeholder)
 
         If you need to determine the plugin render model at render time
@@ -30,18 +26,8 @@ CMSPluginBase Attributes and Methods Reference
 
 .. autoclass:: cms.plugin_base.PluginMenuItem
 
-
-******************************************
-CMSPlugin Attributes and Methods Reference
-******************************************
-
 .. autoclass:: cms.models.pluginmodel.CMSPlugin
-  :members: 
-
-
-******************************************
-PluginPool reference
-******************************************
+  :members:
 
 .. autoclass:: cms.plugin_pool.PluginPool
   :members:

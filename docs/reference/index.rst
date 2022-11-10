@@ -15,11 +15,11 @@ Technical reference material.
     fields
     navigation
     pages
+    pagecontents
     permissions
     placeholders
     plugins
     sitemaps
     templatetags
-    titles
     toolbar
     wizards

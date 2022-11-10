@@ -1,6 +1,10 @@
-######
-Titles
-######
+#############
+Page contents
+#############
+
+.. autoclass:: cms.models.titlemodels.PageContent
+    :members:
+    :exclude-members: DoesNotExist, MultipleObjectsReturned
 
 ..  class:: cms.models.Title
 
@@ -9,3 +13,5 @@ Titles
 
     Each ``Title`` has a foreign key to :class:`cms.models.Page`; each :class:`cms.models.Page` may have several
     ``Titles``.
+
+

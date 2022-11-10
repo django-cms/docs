@@ -113,7 +113,7 @@ cms.app_base
 
 .. autoclass:: cms.app_base.CMSApp
     :members:
-    
+
     .. attribute:: _urls
 
         list of urlconfs: example: ``_urls = ["myapp.urls"]``
@@ -123,6 +123,7 @@ cms.app_base
         list of menu classes: example: ``_menus = [MyAppMenu]``
 
 .. autoclass:: cms.app_base.CMSAppConfig
+    :members:
 
 .. autoclass:: cms.app_base.CMSAppExtension
     :members:
