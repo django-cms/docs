@@ -11,10 +11,22 @@
 # All configuration values have a default; values that are commented out serve
 # to show the default.
 
+
 import cms
 import datetime
 import os
 import sys
+
+# Initialize Django for autodoc
+
+sys.path.append(os.path.abspath('./'))
+
+import django, django_settings
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_settings')
+django.setup()
+
+
 
 # If extensions (or modules to document with autodoc) are in another
 # directory, add these directories to sys.path here. If the directory is
@@ -36,6 +48,7 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
     'sphinx.ext.autodoc',
+    'sphinx.ext.autosummary',
     'sphinxcontrib.spelling'
     ]
 intersphinx_mapping = {

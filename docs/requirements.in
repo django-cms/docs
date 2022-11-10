@@ -9,5 +9,6 @@ datetime
 coverage
 django~=3.2
 django-sekizai<4  # for python 3.7
-git+https://github.com/django-cms/django-cms@develop-4
+git+https://github.com/fsbraun/django-cms@docs/autosummary
+codespell
 pip-tools
