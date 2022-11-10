@@ -36,7 +36,7 @@ CMSPlugin Attributes and Methods Reference
 ******************************************
 
 .. autoclass:: cms.models.pluginmodel.CMSPlugin
-  :members:
+  :members: 
 
 
 ******************************************

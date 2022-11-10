@@ -1,6 +1,6 @@
-####################
-Menus and navigation
-####################
+##############################
+User side menus and navigation
+##############################
 
 .. highlight:: html+django
 
@@ -268,22 +268,19 @@ Menu system classes and function
 ``menu`` application
 ====================
 
-..  class:: menus.base.Menu
-
-    The base class for all menu-generating classes.
-
-    ..  method:: get_nodes(self, request)
-
-        Each sub-class of ``Menu`` should return a list of NavigationNode instances.
+.. autoclass:: menus.base.Menu
+    :members:
 
 
-..  class:: menus.base.Modifier
+.. autoclass:: menus.base.Modifier
+    :members:
 
-    The base class for all menu-modifying classes. A modifier add, removes or changes NavigationNodes in the list.
+.. autoclass:: menus.base.NavigationNode
+    :members:
 
-    ..  method:: modify(self, request, nodes, namespace, root_id, post_cut, breadcrumb)
 
-        Each sub-class of ``Modifier`` should implement a ``modify()`` method.
+.. autoclass:: menus.menu_pool.MenuPool
+    :members:
 
 
 ..  class:: menus.menu_pool.MenuPool
@@ -372,17 +369,22 @@ Menu system classes and function
     ..  method:: mark_levels()
 
 
+#########
+CMS menus
+#########
+
 ``cms`` application
 ===================
 
-..  class:: cms.menu.CMSMenu
+.. autoclass:: cms.cms_menus.CMSMenu
+    :members:
+    
 
-    Subclass of :class:`menus.base.Menu`. Its :meth:`~menus.base.Menu.get_nodes()` creates a list of NavigationNodes
-    based on ``Page`` objects.
+..  autoclass:: cms.cms_menus.NavExtender
+    :members:
 
+..  autoclass:: cms.cms_menus.SoftRootCutter
+    :members:
 
-..  class:: cms.menu.NavExtender
-
-..  class:: cms.menu.SoftRootCutter
-
-..  class:: cms.menu_bases.CMSAttachMenu
+..  autoclass:: cms.menu_bases.CMSAttachMenu
+    :members:
