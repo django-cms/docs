@@ -4,17 +4,9 @@
 How to install django CMS by hand
 #################################
 
-The easiest way to install django CMS is by using the automated `django CMS installer
-<https://github.com/nephila/djangocms-installer>`_. This is the recommended way to start with new projects, and it's
-what we use in the :ref:`tutorial section of this documentation <tutorials>`.
-
-If you prefer to do things manually, this how-to guide will take you through the process.
-
 ..  note::
 
-    You can also use this guide to help you install django CMS as part of an existing project. However, the guide
-    assumes that you are starting with a blank project, so you will need to adapt the steps below appropriately as
-    required.
+    This guide assumes that you are starting with a blank project, so you will need to adapt the steps below appropriately as required.
 
 This document assumes you have some basic familiarity with Python and Django. After you've integrated django CMS into
 your project, you should be able to follow the :doc:`/introduction/index` for an introduction to developing with django
@@ -69,6 +61,7 @@ Your new project will look like this::
 
     myproject
         myproject
+            asgi.py
             __init__.py
             settings.py
             urls.py
@@ -94,7 +87,7 @@ You will need to add the following to its list of ``INSTALLED_APPS``::
     'treebeard',
 
 * django CMS needs to use Django's :mod:`django:django.contrib.sites` framework. You'll need to set a ``SITE_ID``
-  in the settings - ``SITE_ID = 1`` will suffice.
+  in ``settings.py``. Add ``SITE_ID = 1`` at the end of ``settings.py``.
 * ``cms`` and ``menus`` are the core django CMS modules.
 * `django-treebeard <http://django-treebeard.readthedocs.io>`_ is used to manage django CMS's page tree
   structures. Plugin trees are managed independently since version 4 of django CMS.
