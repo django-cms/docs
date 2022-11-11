@@ -240,10 +240,10 @@ plugins in a granular fashion, as shown above with ``base.html content``.
 
 Configuration is retrieved in the following order:
 
-* CMS_PLACEHOLDER_CONF['template placeholder']
-* CMS_PLACEHOLDER_CONF['placeholder']
-* CMS_PLACEHOLDER_CONF['template']
-* CMS_PLACEHOLDER_CONF[None]
+#. CMS_PLACEHOLDER_CONF['template placeholder']
+#. CMS_PLACEHOLDER_CONF['placeholder']
+#. CMS_PLACEHOLDER_CONF['template']
+#. CMS_PLACEHOLDER_CONF[None]
 
 The first ``CMS_PLACEHOLDER_CONF`` key that matches for the required configuration attribute
 is used.
