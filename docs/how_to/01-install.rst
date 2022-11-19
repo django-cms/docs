@@ -62,13 +62,20 @@ Your new project will look like this::
 Minimally-required applications and settings
 ********************************************
 
-Open the new project's ``settings.py`` file in your text editor.
+Add the following applications and settings to the ``settings.py`` file in your project.
+
+Intention to use django CMS version 4
+=====================================
+
+Add the following setting at the end of ``settings.py`` to confirm your intention to use django CMS version 4::
+
+CMS_CONFIRM_VERSION4 = True
 
 
-INSTALLED_APPS
+Installed apps
 ==============
 
-You will need to add the following to its list of ``INSTALLED_APPS``::
+Add the following to the list of ``INSTALLED_APPS``::
 
     'django.contrib.sites',
     'cms',
@@ -94,8 +101,7 @@ In the ``INSTALLED_APPS``, **before** ``django.contrib.admin``, add::
 Language settings
 =================
 
-django CMS requires you to set the :setting:`django:LANGUAGES` setting. This should list all the languages you want
-your project to serve, and must include the language in :setting:`django:LANGUAGE_CODE`.
+List the :setting:`django:LANGUAGES` your project will serve. Also, add the :setting:`django:LANGUAGE_CODE` for each language.
 
 For example::
 
