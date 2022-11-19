@@ -6,12 +6,7 @@ How to install django CMS by hand
 
 ..  note::
 
-    This guide assumes that you are starting with a blank project, so you will need to adapt the steps below appropriately as required.
-
-This document assumes you have some basic familiarity with Python and Django. After you've integrated django CMS into
-your project, you should be able to follow the :doc:`/introduction/index` for an introduction to developing with django
-CMS.
-
+    This guide assumes that you are starting with a blank project, so you will need to adapt the steps below appropriately as required. This guide also assumes you have some basic familiarity with Python and Django.
 
 ******************************
 Install the django CMS package
@@ -33,29 +28,23 @@ django CMS also has other requirements, which it lists as dependencies in its ``
         virtualenv django-cms-site  # create a virtualenv
         source django-cms-site/bin/activate  # activate it
 
-In an activated virtualenv, run::
+Once you are on an activated virtualenv, make sure ``pip`` is up-to-date by running::
 
 	pip install --upgrade pip
 
-to make sure ``pip`` is up-to-date, as earlier versions can be less reliable.
-
-Then::
+Now, using ``pip`` install the latest stable version of django CMS ::
 
     pip install git+https://github.com/django-cms/django-cms@develop-4
 
-to install the latest stable version of django CMS.
 
 
 ****************************************
 Create a new project
 ****************************************
 
-Create a new project::
+To create a new project run::
 
     django-admin startproject myproject
-
-If this is new to you, you ought to read the `official Django tutorial
-<https://docs.djangoproject.com/en/dev/intro/tutorial01/>`_, which covers starting a new project.
 
 Your new project will look like this::
 
