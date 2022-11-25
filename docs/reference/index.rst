@@ -23,3 +23,4 @@ Technical reference material.
     templatetags
     toolbar
     wizards
+    app_base
