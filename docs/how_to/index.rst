@@ -50,3 +50,12 @@ Creating new functionality
     Create content creation wizards <15-wizards>
     Extend Page & Title models <16-extending_page_contents>
     Test your extensions <17-testing>
+
+*********************
+Sharing functionality
+*********************
+
+..  toctree::
+  :maxdepth: 1
+
+  CMS application configuration <18-cms-config.rst>
