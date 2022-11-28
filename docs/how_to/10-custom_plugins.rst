@@ -784,15 +784,19 @@ To create a plugin instance in your app use
       )
 
 
-* :meth:`cms.models.placeholdermodel.Placeholder.delete_plugin`::
+* :meth:`cms.models.placeholdermodel.Placeholder.delete_plugin` deletes a plugin
+    **including its children**::
 
-    old_instance.placeholder.delte_plugin(old_instance)
+    old_instance.placeholder.delete_plugin(old_instance)
 
 
 .. warning::
 
-    Do **not** use ``PluginModel.objects.create(...)`` or
+    **Do not** use ``PluginModel.objects.create(...)`` or
     ``PluginModel.objects.delete()`` to create or delete plugin instances.
     This most likely either throw a database integrity exception or create
     a inconsistent plugin tree leading to unexpected behavior.
+
+    Also, **do not** use ``queryset.delete()`` to remove multiple plugins
+    at the same time. This will most likely damage the plugin tree.
 
