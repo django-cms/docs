@@ -746,3 +746,53 @@ Example::
                 alias.alias_placeholder = placeholder
             alias.save()
             return HttpResponse("ok")
+
+
+*************************
+Creating plugin instances
+*************************
+
+.. versionadded:: 4.0
+
+Plugins live inside placeholders. Since django CMS version 4 placeholders manage
+the creation, and especially the deletion of plugins. Besides creating (or deleting)
+database entries for the plugins the placeholders make all necessary changes to the
+entire plugin tree. **Not using the placeholders to create or delete plugins can
+lead to corrupted plugin trees.**
+
+To create a plugin instance in your app use
+
+* :meth:`cms.models.placeholdermodel.Placeholder.add_plugin` or
+  :func:`cms.api.add_plugin`::
+
+      new_instance = MyPluginModel(
+          plugin_data="secret"
+          placeholder=placeholder_to_add_to,
+          position=1,  # First plugin in placeholder
+      )
+
+      placeholder_to_add_to.add_plugin(new_instance)
+      assert new_instance_pk is not None  # Saved to db
+
+  or::
+
+      new_plugin = cms.api.add_plugin(
+          placeholder_to_add_to,
+          "MyPlugin",
+          position='last-child',  # the only option for root plugins
+          data=dict(plugin_data="secret"),
+      )
+
+
+* :meth:`cms.models.placeholdermodel.Placeholder.delete_plugin`::
+
+    old_instance.placeholder.delte_plugin(old_instance)
+
+
+.. warning::
+
+    Do **not** use ``PluginModel.objects.create(...)`` or
+    ``PluginModel.objects.delete()`` to create or delete plugin instances.
+    This most likely either throw a database integrity exception or create
+    a inconsistent plugin tree leading to unexpected behavior.
+
