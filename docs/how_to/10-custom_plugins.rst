@@ -779,7 +779,7 @@ To create a plugin instance in your app use
       new_plugin = cms.api.add_plugin(
           placeholder_to_add_to,
           "MyPlugin",
-          position='last-child',  # the only option for root plugins
+          position='first-child',  # First position in placeholder (no parent)
           data=dict(plugin_data="secret"),
       )
 
