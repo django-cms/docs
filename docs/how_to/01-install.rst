@@ -69,31 +69,32 @@ Intention to use django CMS version 4
 
 Add the following setting at the end of ``settings.py`` to confirm your intention to use django CMS version 4::
 
-CMS_CONFIRM_VERSION4 = True
+   CMS_CONFIRM_VERSION4 = True
 
 
 Installed apps
 ==============
 
-Add the following to the list of ``INSTALLED_APPS``::
+django CMS needs to use Django's :mod:`django:django.contrib.sites` framework. It also uses the core django CMS modules
+``cms`` and ``menus``. Finally, `django-treebeard <http://django-treebeard.readthedocs.io>`_
+is used to manage django CMS's page tree structures. Plugin trees are managed independently since version 4 of django CMS.
+
+Add :mod:`django:django.contrib.sites`, ``cms``, ``menus``, and ``treebeard`` at the end of the the list of ``INSTALLED_APPS``::
 
     'django.contrib.sites',
     'cms',
     'menus',
     'treebeard',
 
-* django CMS needs to use Django's :mod:`django:django.contrib.sites` framework. You'll need to set a ``SITE_ID``
-  in ``settings.py``. Add ``SITE_ID = 1`` at the end of ``settings.py``.
-* ``cms`` and ``menus`` are the core django CMS modules.
-* `django-treebeard <http://django-treebeard.readthedocs.io>`_ is used to manage django CMS's page tree
-  structures. Plugin trees are managed independently since version 4 of django CMS.
+Set a ``SITE_ID`` after the list of installed apps::
+
+   SITE_ID = 1
 
 django CMS installs `django CMS admin style <https://github.com/django-cms/djangocms-admin-style>`_.
-This provides some styling that helps make django CMS administration components easier to work with.
-Technically it's an optional component and does not need to be enabled in your project,
-but it's strongly recommended.
+This is an optional setting that provides some styling that helps make django CMS administration components easier to work with.
+Its installation is strongly recommended.
 
-In the ``INSTALLED_APPS``, **before** ``django.contrib.admin``, add::
+To install django CMS admin style add the following in the ``INSTALLED_APPS`` and **before** ``django.contrib.admin``::
 
     'djangocms_admin_style',
 
@@ -212,7 +213,7 @@ in the ``TEMPLATES['OPTIONS']['context_processors']``:
 Middleware
 ==========
 
-in your :setting:`django:MIDDLEWARE` you'll need :class:`django:django.middleware.locale.LocaleMiddleware` -
+In :setting:`django:MIDDLEWARE` add the following: you'll need :class:`django:django.middleware.locale.LocaleMiddleware` -
 it's **not** installed in Django projects by default.
 
 Also add::
