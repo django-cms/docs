@@ -183,16 +183,12 @@ After each of the steps below run ``cms check`` to verify that you have resolved
 Sekizai
 =======
 
-`Django Sekizai <https://github.com/ojii/django-sekizai>`_ is required by the CMS for static files management. You need
-to have::
+`Django Sekizai <https://github.com/ojii/django-sekizai>`_ is required by the CMS for static files management. Add the following to at the end of the list of ``INSTALLED_APPS``::
 
-     'sekizai'
+     'sekizai',
+     'sekizai.context_processors.sekizai'
 
-listed in ``INSTALLED_APPS``, and::
-
-    'sekizai.context_processors.sekizai'
-
-in the ``TEMPLATES['OPTIONS']['context_processors']``:
+Also add ``'sekizai.context_processors.sekizai'`` to the ``TEMPLATES['OPTIONS']['context_processors']``:
 
 ..  code-block:: python
     :emphasize-lines: 7
