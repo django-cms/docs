@@ -8,7 +8,7 @@ How to implement content creation wizards
 
 django CMS offers a framework for creating 'wizards' - helpers - for content editors.
 
-They provide a simplified workflow for common tasks.
+They provide a simplified workflow for common tasks such as creating a new page.
 
 A django CMS Page wizard already exists, but you can create your own for other content types very easily.
 
@@ -35,9 +35,16 @@ Now create another file in the root level called ``cms_wizards.py``.
 In this file, import ``Wizard`` as follows::
 
     from cms.wizards.wizard_base import Wizard
-    from cms.wizards.wizard_pool import wizard_pool
 
-Then, simply subclass ``Wizard``, instantiate it, then register it. If you were to
+Then, simply subclass ``Wizard`` and instantiate it.
+
+.. note::
+
+    .. versionadded::4.0
+    Registering a wizard with the wizard_pool is no longer the preferred way to register a wizard.
+    Since django CMS version 4 django CMS keeps track of wizard using ``cms_config.py``.
+
+If you were to
 do this for ``MyApp``, it might look like this::
 
 
