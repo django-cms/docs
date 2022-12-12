@@ -1,8 +1,8 @@
 .. _configuration:
 
-#############
-Configuration
-#############
+######################
+Configuring django CMS
+######################
 
 django CMS has a number of settings to configure its behaviour. These should
 be available in your ``settings.py`` file.
@@ -393,7 +393,7 @@ default
 
 A list of plugin context processors. Plugin context processors are callables
 that modify all plugins' context *before* rendering. See
-:doc:`/how_to/10_custom_plugins` for more information.
+:doc:`/how_to/10-custom_plugins` for more information.
 
 
 ..  setting:: CMS_PLUGIN_PROCESSORS
@@ -405,7 +405,7 @@ default
     ``[]``
 
 A list of plugin processors. Plugin processors are callables that modify all
-plugins' output *after* rendering. See :doc:`/how_to/10_custom_plugins`
+plugins' output *after* rendering. See :doc:`/how_to/10-custom_plugins`
 for more information.
 
 ..  setting:: CMS_APPHOOKS
@@ -1011,8 +1011,38 @@ default
     ``True``
 
 This setting controls if anonymous users can see the CMS toolbar with
-a login form when ``?edit`` is appended to a URL. The default behaviour
+a login form when ``?toolbar_on`` is appended to a URL. The default behaviour
 is to show the toolbar to anonymous users.
+
+.. setting:: CMS_TOOLBAR_ANONYMOUS_ON
+
+
+CMS_TOOLBAR_URL__ENABLE
+=======================
+
+default
+    ``"toolbar_on``
+
+This setting controls how users can activate the CMS toolbar by appending a query
+string to the url. The default setting lets ``?toolbar_on`` activate the toolbar.
+
+.. note::
+
+    This replaces the ``?edit`` query string of django CMS 3.x
+
+.. setting:: CMS_TOOLBAR_URL__ENABLE
+
+
+CMS_TOOLBAR_URL__DISABLE
+=======================
+
+default
+    ``"toolbar_off``
+
+This setting controls how users can deactivate the CMS toolbar by appending a query
+string to the url. The default setting lets ``?toolbar_off`` deactivate the toolbar.
+
+.. setting:: CMS_TOOLBAR_URL__DISABLE
 
 
 CMS_TOOLBAR_HIDE
@@ -1028,8 +1058,6 @@ rendered by a django CMS view).
 When this is set to ``True``, all other pages will no longer display the toolbar. This includes pages with apphooks
 applied to them, as they are handled by the other application's views, and not django CMS's.
 
-
-.. versionchanged:: 3.2.1: CMS_APP_NAME has been removed as it's no longer required.
 
 CMS_DEFAULT_X_FRAME_OPTIONS
 ===========================
@@ -1048,23 +1076,6 @@ This should be an integer preferably taken from the ``cms.constants`` e.g.
 
 .. _CMS_TOOLBAR_SIMPLE_STRUCTURE_MODE:
 
-CMS_TOOLBAR_SIMPLE_STRUCTURE_MODE
-=================================
-
-default:
-    ``True``
-
-The new structure board operates by default in "simple" mode. The older mode used absolute
-positioning. Setting this attribute to ``False`` will allow the absolute positioning used in
-versions prior to 3.2. This setting will be removed in 3.3.
-
-
-Example::
-
-    CMS_TOOLBAR_SIMPLE_STRUCTURE_MODE = False
-
-
-..  setting:: CMS_PAGE_WIZARD_DEFAULT_TEMPLATE
 
 CMS_PAGE_WIZARD_DEFAULT_TEMPLATE
 ================================
@@ -1124,8 +1135,10 @@ CMS_ENDPOINT_LIVE_URL_QUERYSTRING_PARAM_ENABLED
 default
     ``False``
 
-Setting to enable the appending of a PageContents live url to its preview and
-edit endpoints as a querystring parameter. This is disabled by default.
+.. versionadded:: 4.0
+
+    Setting to enable the appending of a PageContents live url to its preview and
+    edit endpoints as a querystring parameter. This is disabled by default.
 
 .. setting:: CMS_ENDPOINT_LIVE_URL_QUERYSTRING_PARAM
 
@@ -1135,5 +1148,25 @@ CMS_ENDPOINT_LIVE_URL_QUERYSTRING_PARAM
 default
     ``live-url``
 
-Setting to configure the query string parameter name used for the live-url of a
-PageContent edit/preview endpoint.
+.. versionadded:: 4.0
+
+    Setting to configure the query string parameter name used for the live-url of a
+    PageContent edit/preview endpoint.
+
+
+CMS_CONFIRM_VERSION4
+====================
+
+default
+    ``False``
+
+.. versionadded:: 4.1
+
+    This setting **has to be set** to ``True`` for your project to run on django CMS
+    version 4.1 or later.
+
+The reason is that accidentally running a migration command on an existing installation
+of django CMS v3.x **may corrupt the database**. Upgrading from version 3.x to 4.x is
+not an automatic process.
+
+.. setting:: CMS_CONFIRM_VERSION4
