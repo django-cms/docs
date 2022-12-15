@@ -23,6 +23,9 @@ for example::
 
 When instantiating a Wizard object, use the keywords:
 
+..  autoclass:: cms.wizards.wizard_base.WizardBase
+    :members:
+
 :title: The title of the wizard. This will appear in a large font size on
         the wizard "menu"
 :weight: The "weight" of the wizard when determining the sort-order.
@@ -35,10 +38,6 @@ When instantiating a Wizard object, use the keywords:
 :description: The description is optional, but if it is not supplied, the
               CMS will create one from the pattern:
               "Create a new «model.verbose_name» instance."
-:edit_mode_on_success: If set, the CMS will switch the user to edit-mode by
-                       adding an ``edit`` param to the query-string of the
-                       URL returned by ``get_success_url``. This is ``True``
-                       by default.
 
 
 .. important::
@@ -49,13 +48,22 @@ When instantiating a Wizard object, use the keywords:
 
 .. versionadded:: 4.0
 
-Wizards are made available to the CMS by adding a :class:`cms.app_base.CMSAppExtension`
+Wizards are made available to the CMS by adding a :class:`cms.app_base.CMSAppConfig`
 subclass to your apps's `cms_config.py`. As an example, here's how the CMS itself
 registers its wizards::
 
     class CMSCoreConfig(CMSAppConfig):
         cms_enabled = True  # Use cms core's functionality
         cms_wizards = [cms_page_wizard, cms_subpage_wizard]   # Namely, those wizards
+
+For the above example the configuration might look like this::
+
+    from .cms_wizards import my_app_wizard
+
+    class MyAppConfig(CMSAppConfig):
+        cms_enabled = True
+        cms_wizards = [my_app_wizard]
+
 
 ************
 Wizard class
@@ -66,9 +74,6 @@ Wizard class
 ..  autoclass:: cms.wizards.wizard_base.Wizard
     :members:
     :inherited-members:
-
-..  module:: cms.wizards.wizard_pool
-
 
 
 *******
@@ -85,6 +90,11 @@ Helpers
 ***********
 wizard_pool
 ***********
+
+.. warning::
+
+    The wizard pool is deprecated since version 4.0 and will be removed in a future
+    version.
 
 ..  module:: cms.wizards.wizard_pool
 
