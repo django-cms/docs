@@ -208,22 +208,19 @@ Also add ``'sekizai.context_processors.sekizai'`` to the ``TEMPLATES['OPTIONS'][
 Middleware
 ==========
 
-In :setting:`django:MIDDLEWARE` add the following: you'll need :class:`django:django.middleware.locale.LocaleMiddleware` -
-it's **not** installed in Django projects by default.
+In the :setting:`django:MIDDLEWARE` list add the following::
 
-Also add::
-
+    'django.middleware.locale.LocaleMiddleware',
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware',
 
-to the list.
 
 You can also add ``'cms.middleware.utils.ApphookReloadMiddleware'``. It's not absolutely necessary, but it's
 :ref:`useful <reloading_apphooks>`. If included, should be at the start of the list.
 
-add the following configuration to your ``settings.py``::
+Add the following configuration at the end of ``settings.py``::
 
     X_FRAME_OPTIONS = 'SAMEORIGIN'
 
@@ -232,7 +229,7 @@ Context processors
 
 Add ``'cms.context_processors.cms_settings'`` to ``TEMPLATES['OPTIONS']['context_processors']``.
 
-Also add ``'django.template.context_processors.i18n'`` if it's not already present.
+Also add ``'django.template.context_processors.i18n'`` if it's not already present in ``TEMPLATES['OPTIONS']['context_processors']``.
 
 ``cms check`` should now be unable to identify any further issues with your project. Some additional configuration is
 required however.
