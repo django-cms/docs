@@ -1,6 +1,6 @@
-#######################
-Configuration reference
-#######################
+########################################
+Configuring apps to work with django CMS
+########################################
 
 ..  module:: cms.app_base
 

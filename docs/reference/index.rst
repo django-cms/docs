@@ -9,9 +9,10 @@ Technical reference material.
 .. toctree::
     :maxdepth: 1
 
-    api_references
     cli
     configuration
+    api_references
+    app_base
     fields
     navigation
     pages
@@ -23,4 +24,4 @@ Technical reference material.
     templatetags
     toolbar
     wizards
-    app_base
+
