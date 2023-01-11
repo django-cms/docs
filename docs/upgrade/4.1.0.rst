@@ -23,12 +23,11 @@ support the latest release of each series.
 It supports **Python 3.8, 3.9, 3.10, and 3.11**. As for Django we highly recommend and only
 support the latest release of each series.
 
-*****************
 What's new in 4.1
-*****************
+=================
 
 Status indicators in page tree
-==============================
+------------------------------
 
 * Status indicators are shown in the page tree. For django CMS core only two
   states are available: public and empty.
@@ -39,7 +38,7 @@ Status indicators in page tree
 
 
 Bug Fixes
-=========
+---------
 
 * In rare cases moving plugins from one placeholder to another could result in
   a server error and an inconsistent plugin tree.
@@ -50,12 +49,11 @@ Bug Fixes
 * The "Empty all" menus for placeholders now works.
 
 
-************************************
 Backward incompatible changes in 4.1
-************************************
+===================================*
 
 TitleExtension
-==============
+--------------
 
 ``TitleExtension`` in ``cms.extensions.models`` has been renamed to
 ``PageContentExtension`` to keep a consistent language in the page models.
@@ -64,13 +62,13 @@ Any packages using ``TitleExtension`` will need to adapt the name change in
 their code base.
 
 Monkey patching
-===============
+---------------
 
 django CMS v4.1 does not support monkey patching as for djangocms-versioning
 before version 2.0. Please only use djangocms-versioning >= 2.0
 
 Miscellaneous
-=============
+-------------
 
 * The Django setting ``SEND_BROKEN_LINK_EMAILS`` (removed from Django since
   version 1.8) was used as a signal to send an email to the site managers

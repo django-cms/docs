@@ -6,6 +6,7 @@
 
 This release of django CMS is a complete rewrite of the core, hugely simplyfying what django-cms does
 out of the box. The main reasons for the changes:
+
 - Limitations with publishing, where only 2 versions can ever exist
 - Too many "opinions" of how parts of the CMS should work baked in
 
@@ -16,6 +17,7 @@ out of the box. The main reasons for the changes:
     process of upgrading from 3.5+ to 4.0.0
 
 The core principles of django-cms 4.0+
+
 - The CMS core such be simplified
 - The core should not force any opinions
 - The app registry, plugin and wizard pools should be simplified and allow easy registration
