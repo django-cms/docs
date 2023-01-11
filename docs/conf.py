@@ -45,11 +45,14 @@ sys.path.append(os.path.join(os.path.abspath('.'), '_ext'))
 
 extensions = [
     'djangocms',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.todo',
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
-    'sphinxcontrib.spelling'
+    'sphinx.ext.doctest',
+    'sphinx.ext.intersphinx',
+    'sphinx.ext.todo',
+    'sphinxcontrib.spelling',
+    "sphinx_copybutton",
+    "sphinxext.opengraph",
     ]
 intersphinx_mapping = {
     'python': ('http://docs.python.org/3/', None),
@@ -75,8 +78,8 @@ master_doc = 'index'
 
 current_year = datetime.datetime.now().year
 # General information about the project.
-project = u'django cms'
-copyright = u'2009-{}, Divio AG and contributors'.format(current_year)
+project = 'django cms'
+copyright = '2009-{}, django CMS Association and contributors'.format(current_year)
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -143,20 +146,11 @@ todo_include_todos = True
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 
 try:
-    import divio_docs_theme
-    html_theme = 'divio_docs_theme'
-    html_theme_path = [divio_docs_theme.get_html_theme_path()]
+    import furo
+
+    html_theme = 'furo'
     html_theme_options = {
-        'show_cloud_banner': True,
-        'cloud_banner_markup': """
-            <div class="divio-cloud">
-                <span class="divio-cloud-caption">The django CMS Association</span>
-                <p>The django CMS Association is a non-profit organisation that funds and
-                steers the development of django CMS, and nurtures its world-wide
-                community of developers and users.</p>
-                <a class="btn-neutral divio-cloud-btn" target="_blank" href="https://www.django-cms.org/en/about-us/">Join us</a>
-            </div>
-        """,
+        "navigation_with_keys": True,
     }
 except:  # NOQA
     html_theme = 'default'
