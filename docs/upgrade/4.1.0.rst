@@ -50,7 +50,7 @@ Bug Fixes
 
 
 Backward incompatible changes in 4.1
-===================================*
+====================================
 
 TitleExtension
 --------------
@@ -64,7 +64,7 @@ their code base.
 Monkey patching
 ---------------
 
-django CMS v4.1 does not support monkey patching as for djangocms-versioning
+This is a purely internal change: django CMS v4.1 does not support monkey patching as for djangocms-versioning
 before version 2.0. Please only use djangocms-versioning >= 2.0
 
 Miscellaneous
