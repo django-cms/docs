@@ -1,8 +1,9 @@
 .. raw:: html
 
     <style>
-        .row {clear: both}
-        .row h2  {border-bottom: 1px solid gray;}
+        .row {
+           clear: both;
+        }
 
         .column img {border: 1px solid gray;}
 
@@ -16,11 +17,21 @@
             }
 
             .column3  {
-                width: 33.3%;
+                width: calc(33.3% - 10px);
             }
 
             .column2  {
-                width: 50%;
+                width: calc(50% - 11px);
+            }
+            .top-left {
+                border-right: 1px solid var(--color-background-border);
+                border-bottom: 1px solid var(--color-background-border);
+            }
+            .top-right {
+                border-bottom: 1px solid var(--color-background-border);
+            }
+            .bottom-left {
+                border-right: 1px solid var(--color-background-border);
             }
         }
     </style>
@@ -47,28 +58,28 @@ create a site that is tailored to their precise needs.
 
 .. rst-class:: clearfix row
 
-.. rst-class:: column column2
+.. rst-class:: column column2 top-left
 
 :ref:`tutorials` - start here
 =============================
 
 For the new django CMS developer, from installation to creating your own addon applications.
 
-.. rst-class:: column column2
+.. rst-class:: column column2 top-right
 
 :ref:`how-to`
 =============
 
 Practical step-by-step guides for the more experienced developer, covering several important topics.
 
-.. rst-class:: column column2
+.. rst-class:: column column2 bottom-left
 
 :ref:`key-topics`
 =================
 
 Explanation and analysis of some key concepts in django CMS.
 
-.. rst-class:: column column2
+.. rst-class:: column column2 bottom-right
 
 :ref:`reference`
 ================
@@ -113,6 +124,9 @@ StackOverflow
 
 `StackOverflow <https://stackoverflow.com/questions/tagged/django-cms>`_ is also a good place
 for questions around django CMS and its plugin ecosystem.
+
+
+.. rst-class:: row clearfix
 
 
 ***************
