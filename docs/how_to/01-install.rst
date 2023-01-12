@@ -32,10 +32,22 @@ Once you are on an activated virtualenv, make sure ``pip`` is up-to-date by runn
 
 	pip install --upgrade pip
 
-Now, using ``pip`` install the latest stable version of django CMS ::
+Now, using ``pip`` install the latest development version of django CMS ::
 
     pip install git+https://github.com/django-cms/django-cms@develop-4
 
+or install the  release candidate::
+
+    pip install django-cms==4.1.0rc1
+
+To add versioning support install::
+
+    pip install git+https://github.com/django-cms/djangocms-versioning@master
+
+.. note::
+
+    Currently, versioning can only be added at the start of a project. Otherwise
+    database inconsistencies can occur.
 
 
 ****************************************
@@ -85,6 +97,10 @@ Add :mod:`django:django.contrib.sites`, ``cms``, ``menus``, and ``treebeard`` at
     'cms',
     'menus',
     'treebeard',
+
+If versioning is required, also add::
+
+    'djangocms_versioning'
 
 Set a ``SITE_ID`` after the list of installed apps::
 
