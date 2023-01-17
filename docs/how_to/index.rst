@@ -43,6 +43,7 @@ Creating new functionality
     :maxdepth: 1
 
     Create plugins <10-custom_plugins>
+    Upgrading plugins for django CMS 4+ <10a-upgrade_plugins>
     Create apphooks <11-apphooks>
     Manage complex apphook configuration <12-namespaced_apphooks>
     Extend the Toolbar <13-toolbar>
