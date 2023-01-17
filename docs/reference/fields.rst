@@ -13,10 +13,21 @@ Model fields
     :show-inheritance:
     :exclude-members: DoesNotExist, MultipleObjectsReturned
 
+.. autoclass:: cms.models.fields.PlaceholderRelationField
+    :members:
+    :show-inheritance:
+    :exclude-members: DoesNotExist, MultipleObjectsReturned
+
 .. autoclass:: cms.models.fields.PlaceholderField
     :members:
     :show-inheritance:
     :exclude-members: DoesNotExist, MultipleObjectsReturned
+
+***************
+Helper function
+***************
+
+.. autofunction:: cms.models.fields.get_placeholder_from_slot
 
 
 ***********

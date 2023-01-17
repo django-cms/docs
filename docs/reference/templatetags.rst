@@ -145,7 +145,7 @@ to render it in the template.
 
 The :ttag:`render_placeholder` tag takes the following parameters:
 
-* :class:`~cms.models.fields.PlaceholderField` instance
+* :class:`~cms.models.placeholdermodel.Placeholder` instance
 * ``width`` parameter for context sensitive plugins (optional)
 * ``language`` keyword plus ``language-code`` string to render content in the
   specified language (optional)
@@ -173,6 +173,11 @@ render only the English (``en``) plugins:
 
     When used in this manner, the placeholder will not be displayed for
     editing when the CMS is in edit mode.
+
+See :ref:`placeholders_outside_cms` or
+:class:`~cms.models.fields.PlaceholderRelationField` on how to get a
+specific placeholder instance.
+
 
 ..  templatetag:: render_uncached_placeholder
 

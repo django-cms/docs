@@ -38,9 +38,6 @@ djangocms-text-ckeditor       Text Plugin for django CMS using          supports
 djangocms-versioning          Adds versioning and publication           v4.x only
                               management features to v4
 ----------------------------- ----------------------------------------- -------------------
-djangocms-version-locking     Allows locking draft versions to avoid    v4.x only
-                              conflicts
------------------------------ ----------------------------------------- -------------------
 djangocms-moderation          Implements moderation process to channel   v4.x only
                               publications
 ----------------------------- ----------------------------------------- -------------------
@@ -74,6 +71,25 @@ djangocms-admin-style         django CMS design for Django's admin      supports
 We welcome feedback, documentation, patches and any other help to maintain and improve these valuable
 components.
 
+Thrid-party opinionated packages
+----------------------------------------
+
+============================= ========================================= ===================
+Package                       Description                               Status
+============================= ========================================= ===================
+djangocms-version-locking     Allows locking draft versions to avoid    v4.x only
+                              conflicts
+----------------------------- ----------------------------------------- -------------------
+djangocms-page-admin          New PageContent admin which doesn't       supports v4.0, v4.1
+                              include tree functionality                support unclear
+----------------------------- ----------------------------------------- -------------------
+djangocms-navigation          (undocumented)                            supports v4.0, v4.1
+                                                                        support unclear
+----------------------------- ----------------------------------------- -------------------
+djangocms-references          Retrieve objects that are related to a    supports v4.0, v4.1
+                              selected object and view to present that  support unclear
+                              data to the end user
+============================= ========================================= ===================
 
 
 Packages not (yet) supporting version 4

@@ -640,13 +640,12 @@ of placeholders or plugins.
 
 * You can either extend a placeholder context menu.
 * You can extend all plugin context menus.
-* You can extend the current plugin context menu.
 
-For this purpose you can overwrite 3 methods on CMSPluginBase.
+
+For this purpose you can overwrite the two methods on CMSPluginBase.
 
 * :meth:`~cms.plugin_base.CMSPluginBase.get_extra_placeholder_menu_items`
-* :meth:`~cms.plugin_base.CMSPluginBase.get_extra_global_plugin_menu_items`
-* :meth:`~cms.plugin_base.CMSPluginBase.get_extra_local_plugin_menu_items`
+* :meth:`~cms.plugin_base.CMSPluginBase.get_extra_plugin_menu_items`
 
 Example::
 
@@ -672,7 +671,7 @@ Example::
                 context['content'] = mark_safe(content)
             return context
 
-        def get_extra_global_plugin_menu_items(self, request, plugin):
+        def get_extra_plugin_menu_items(self, request, plugin):
             return [
                 PluginMenuItem(
                     _("Create Alias"),
@@ -748,9 +747,9 @@ Example::
             return HttpResponse("ok")
 
 
-*************************
-Creating plugin instances
-*************************
+**************************************
+Creating and deleting plugin instances
+**************************************
 
 .. versionadded:: 4.0
 
@@ -760,10 +759,9 @@ database entries for the plugins the placeholders make all necessary changes to 
 entire plugin tree. **Not using the placeholders to create or delete plugins can
 lead to corrupted plugin trees.**
 
-To create a plugin instance in your app use
 
-* :meth:`cms.models.placeholdermodel.Placeholder.add_plugin` or
-  :func:`cms.api.add_plugin`::
+* Use :meth:`cms.models.placeholdermodel.Placeholder.add_plugin` or
+  :func:`cms.api.add_plugin` to create plugins::
 
       new_instance = MyPluginModel(
           plugin_data="secret"
@@ -784,10 +782,10 @@ To create a plugin instance in your app use
       )
 
 
-* :meth:`cms.models.placeholdermodel.Placeholder.delete_plugin` deletes a plugin
+* Use :meth:`cms.models.placeholdermodel.Placeholder.delete_plugin` to delete a plugin
     **including its children**::
 
-    old_instance.placeholder.delete_plugin(old_instance)
+         old_instance.placeholder.delete_plugin(old_instance)
 
 
 .. warning::

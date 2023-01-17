@@ -122,6 +122,7 @@ Model changes
 
 Page, Title (now PageContent) and Placeholder refactor
 ------------------------------------------------------
+
 There are various changes to the model structure for the Page and PageContents (formerly Title). The most notable is the fact that plugins from different Title instances were all saved in the same Placeholder instance. This has now changed in DjangoCMS 4, a PageContent (formerly Title) instance now contains a dedicated set of Placeholder instances.
 
 The model structure was changed to allow flexibility in the core of the cms, this allowed a package such as djangocms-versioning to create infinite PageContent models.
@@ -294,10 +295,6 @@ Plugin refactor
 - Plugins used to utilise Treebeard. The Treebeard implementation was not coping with this, it was prone to breakage and tree corruption. The refactor simplifies and avoids this by utilising a parent child relationship with plugins. The main issue when replacing the Treebeard implementation was performance, here the standard Django ORM could not provide the query complexity and performance required, individual implementations for the different SQL dialects was implemented to aid performance of plugin queries.
 - Initial plugin refactor: https://github.com/django-cms/django-cms/commit/83d38dbb2e51b4cb65aff5726a1c415de7a1c376
 - Support for other SQL dialects for the plugin tree structure: https://github.com/django-cms/django-cms/commit /4dfaa1c360c2a15f6572b89fc994a254be9e961d
-
-Page, Title (now PageContent) and Placeholder refactor
-
-There are various changes to the model structure for the Page and PageContents (formerly Title). The most notable is the fact that plugins from different Title instances were all saved in the same Placeholder instance. This has now changed in DjangoCMS 4, a PageContent (formerly Title) instance now contains a dedicated set of Placeholder instances. Please see the illustration below:
 
 
 Signals
