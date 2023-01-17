@@ -146,3 +146,77 @@ Similarly, it deletes plugins:
 Adapting your test suite
 ************************
 
+Test suites often create pages, add plugins that are to be tested, and publish the pages. Since publishing in django CMS 4 is not part of the core any more, a way updating the test suites is to add a test fixture to your tests that provide
+publish and unpublish functionality.
+
+In the tests themselves all ``page.publish()`` calls then need to be replaced by ``self.publis(page)`` calls to the fixture.
+
+Here's an example of test fixture (from djangocms-frontend)
+
+.. code-block::
+
+    from packaging.version import Version
+
+    from cms import __version__
+
+    DJANGO_CMS4 = Version(__version__) >= Version("4")
+
+
+    class TestFixture:
+        """Sets up generic setUp and tearDown methods for tests."""
+
+        if DJANGO_CMS4:  # CMS V4
+            def _get_version(self, grouper, version_state, language=None):
+                language = language or self.language
+
+                from djangocms_versioning.models import Version
+
+                versions = Version.objects.filter_by_grouper(grouper).filter(
+                    state=version_state
+                )
+                for version in versions:
+                    if (
+                        hasattr(version.content, "language")
+                        and version.content.language == language
+                    ):
+                        return version
+
+            def publish(self, grouper, language=None):
+                from djangocms_versioning.constants import DRAFT
+
+                version = self._get_version(grouper, DRAFT, language)
+                if version is not None:
+                    version.publish(self.superuser)
+
+            def unpublish(self, grouper, language=None):
+                from djangocms_versioning.constants import PUBLISHED
+
+                version = self._get_version(grouper, PUBLISHED, language)
+                if version is not None:
+                    version.unpublish(self.superuser)
+
+            def create_page(self, title, **kwargs):
+                kwargs.setdefault("language", self.language)
+                kwargs.setdefault("created_by", self.superuser)
+                kwargs.setdefault("in_navigation", True)
+                kwargs.setdefault("limit_visibility_in_menu", None)
+                kwargs.setdefault("menu_title", title)
+                return create_page(title=title, **kwargs)
+
+            def get_placeholders(self, page):
+                return page.get_placeholders(self.language)
+
+        else:  # CMS V3
+            def publish(self, page, language=None):
+                page.publish(language)
+
+            def unpublish(self, page, language=None):
+                page.unpublish(language)
+
+            def create_page(self, title, **kwargs):
+                kwargs.setdefault("language", self.language)
+                kwargs.setdefault("menu_title", title)
+                return create_page(title=title, **kwargs)
+
+            def get_placeholders(self, page):
+                return page.get_placeholders()
