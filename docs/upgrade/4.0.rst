@@ -4,6 +4,14 @@
 4.0.0 release notes
 ###################
 
+.. note::
+
+    Version 4.1 is the first **community release of django CMS 4**. It includes all of the changes mentioned in this section and those mentioned in :ref:`upgrade-to-4.1`. django CMS 3 users seeking to upgrade **should immediately go to version 4.1**.
+
+    Version 4.0 has never been released on pypi but is available on `github <https://github.com/django-cms/django-cms/tree/release/4.0.x>`_.
+
+
+
 This release of django CMS is a complete rewrite of the core, hugely simplyfying what django-cms does
 out of the box. The main reasons for the changes:
 
