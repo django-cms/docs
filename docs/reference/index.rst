@@ -23,5 +23,6 @@ Technical reference material.
     sitemaps
     templatetags
     toolbar
+    utility-functions
     wizards
 

@@ -23,12 +23,6 @@ Model fields
     :show-inheritance:
     :exclude-members: DoesNotExist, MultipleObjectsReturned
 
-***************
-Helper function
-***************
-
-.. autofunction:: cms.models.fields.get_placeholder_from_slot
-
 
 ***********
 Form fields
