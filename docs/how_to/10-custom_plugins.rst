@@ -747,6 +747,8 @@ Example::
             return HttpResponse("ok")
 
 
+.. _placeholder-plugin-api:
+
 **************************************
 Creating and deleting plugin instances
 **************************************
