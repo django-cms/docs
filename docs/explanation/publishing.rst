@@ -70,7 +70,7 @@ forms**::
     PageContent.admin_manager.filter(page=my_page, language="en")
 
 will retrieve page content objects of all versions. To get the current draft version
-it is often easier to filter the ``Version``object::
+it is often easier to filter the ``Version`` object::
 
     from djangocms_versioning.constants import DRAFT
     from djangocms_versioning.models import Version
