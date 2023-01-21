@@ -8,14 +8,15 @@ Accordingly, all changes you make are visible immediately.
 
 `djangocms-versioning <https://github.com/django-cms/djangocms-versioning>`_ is a general
 purpose package that manages versions within different categories, like **published**,
-**draft**, **unpublished**, or **archived**. django CMS, however, is not resitrcted to
-work with djangocms-verisoning. You can use other verisoning packages or come up with
+**draft**, **unpublished**, or **archived**. django CMS, however, is not restricted to
+work with djangocms-verisoning. You can use other versioning packages or come up with
 your own either from scratch or by forking djangocms-versioning.
 
 This section gives a short introduction on how to work with djangocms-versioning. For details
-please consult the documentation of djangocms-versioning.
+please consult the
+`documentation of djangocms-versioning <https://django-cms-docs.readthedocs.io/>`_.
 
-Also, while this section focuses on pages djangocms-versioning can lend its versioning
+Also, while this section focuses on pages, djangocms-versioning can lend its versioning
 capabilities to other objects, too, e.g., aliases as defined in djangocms-alias.
 
 **************
