@@ -9,89 +9,65 @@ user-editable content (plugins) in templates. That is, it's the place where a
 user can add text, video or any other plugin to a webpage, using the same
 frontend editing as the CMS pages.
 
+.. versionchanged:: 4.0
+
 Placeholders can be viewed as containers for :class:`~cms.models.pluginmodel.CMSPlugin` instances, and
 can be used outside the CMS in custom applications using the
-:class:`~cms.models.fields.PlaceholderField`.
+:class:`~cms.models.fields.PlaceholderRelationField`.
 
-By defining one (or several) :class:`~cms.models.fields.PlaceholderField` on a
-custom model you can take advantage of the full power of :class:`~cms.models.pluginmodel.CMSPlugin`.
+By defining a :class:`~cms.models.fields.PlaceholderRelationField` on a
+custom model you can take advantage of the full power of :class:`~cms.models.pluginmodel.CMSPlugin` in one or more placholders.
+
+
+.. warning::
+
+    Django CMS 3.x used a different way of integrating placeholders. It's ``PlaceholderField("slot_name")`` needs to be changed into a ``PlaceholderRelationField`` (available since django CMS 4.x).
 
 ***********
 Get started
 ***********
 
-You need to define a :class:`~cms.models.fields.PlaceholderField` on the model you would like to
+You need to define a :class:`~cms.models.fields.PlaceholderRelationField` on the model you would like to
 use::
 
     from django.db import models
-    from cms.models.fields import PlaceholderField
+    from cms.models.fields import PlaceholderRelationField
+    from cms.utils.placeholder import get_placeholder_from_slot
 
     class MyModel(models.Model):
         # your fields
-        my_placeholder = PlaceholderField('placeholder_name')
+        placeholders = PlaceholderRelationField()
+
+        @cached_property
+        def my_placeholder(self):
+            return get_placeholder_from_slot(self.placeholders, "my_placeholder")
+
         # your methods
 
 
-The :class:`~cms.models.fields.PlaceholderField` has one required parameter, a string ``slotname``.
+The :class:`~cms.models.fields.PlaceholderRelationField` can reference more than one field. It is customary to add (cached) properties to the model referring to specific placeholders. The utility function :func:`~cms.utils.placeholder.get_placeholder_from_slot` retrieves a placeholder object based on its slot name.
 
-The ``slotname`` is used in templates, to determine where the placeholder's plugins should appear
+The ``slot`` is used in templates, to determine where the placeholder's plugins should appear
 in the page, and in the placeholder configuration :setting:`CMS_PLACEHOLDER_CONF`, which determines
 which plugins may be inserted into this placeholder.
 
-You can also use a callable for the ``slotname``, as in::
-
-    from django.db import models
-    from cms.models.fields import PlaceholderField
-
-    def my_placeholder_slotname(instance):
-        return 'placeholder_name'
-
-    class MyModel(models.Model):
-        # your fields
-        my_placeholder = PlaceholderField(my_placeholder_slotname)
-        # your methods
-
-.. warning::
-
-    For security reasons the related_name for a
-    :class:`~cms.models.fields.PlaceholderField` may not be suppressed using
-    ``'+'``; this allows the cms to check permissions properly. Attempting to do
-    so will raise a :exc:`ValueError`.
-
 .. note::
 
-    If you add a PlaceholderField to an existing model, you'll be able to see
+    If you add a PlaceholderRelationField to an existing model, you'll be able to see
     the placeholder in the frontend editor only after saving the relevant instance.
 
 Admin Integration
 =================
 
-Your model with ``PlaceholderFields`` can still be edited in the admin. However, any
-PlaceholderFields in it will **only be available for editing from the frontend**.
-``PlaceholderFields`` **must** not be present in any ``fieldsets``, ``fields``, ``form`` or other
-``ModelAdmin`` field's definition attribute.
+.. versionchanged:: 4.0
 
-To provide admin support for a model with a ``PlaceholderField`` in your application's admin, you
-need to use the mixin :class:`~cms.admin.placeholderadmin.PlaceholderAdminMixin` along with the
-:class:`~django.contrib.admin.ModelAdmin`. Note that the ``PlaceholderAdminMixin`` **must** precede
-the ``ModelAdmin`` in the class definition::
+Since django CMS version 4 :class:`~cms.admin.placeholderadmin.PlaceholderAdminMixin` is not required any more. For now, it still exists as an empty mixin but will be removed in a future version.
 
-    from django.contrib import admin
-    from cms.admin.placeholderadmin import PlaceholderAdminMixin
-    from myapp.models import MyModel
-
-    class MyModelAdmin(PlaceholderAdminMixin, admin.ModelAdmin):
-        pass
-
-    admin.site.register(MyModel, MyModelAdmin)
 
 I18N Placeholders
 =================
 
-Out of the box :class:`~cms.admin.placeholderadmin.PlaceholderAdminMixin` supports multiple
-languages and will display language tabs. If you extend your model admin class derived from
-``PlaceholderAdminMixin`` and overwrite ``change_form_template`` have a look at
-``admin/placeholders/placeholder/change_form.html`` to see how to display the language tabs.
+Placeholders and plugins within them support multiple languages out of the box.
 
 If you need other fields translated as well, django CMS has support for `django-hvad`_. If you use
 a ``TranslatableModel`` model be sure to **not** include the placeholder fields amongst the
@@ -102,23 +78,15 @@ translated fields::
             title=models.CharField('title', max_length=255),
             description=models.CharField('description', max_length=255),
         )
-        placeholder_1 = PlaceholderField('placeholder_1')
+        placeholders = PlaceholderRelationField()
 
-        def __unicode__(self):
+        @cached_property
+        def placeholder_1(self):
+            return get_placeholder_from_slot(self.placeholders, "placeholder_1")
+
+        def __str__(self):
             return self.title
 
-Be sure to combine both hvad's ``TranslatableAdmin`` and :class:`~cms.admin.placeholderadmin.PlaceholderAdminMixin` when
-registering your model with the admin site::
-
-    from cms.admin.placeholderadmin import PlaceholderAdminMixin
-    from django.contrib import admin
-    from hvad.admin import TranslatableAdmin
-    from myapp.models import MultilingualExample1
-
-    class MultilingualModelAdmin(TranslatableAdmin, PlaceholderAdminMixin, admin.ModelAdmin):
-        pass
-
-    admin.site.register(MultilingualExample1, MultilingualModelAdmin)
 
 Templates
 =========
@@ -182,7 +150,7 @@ Permissions
 ===========
 
 To be able to edit a placeholder user must be a ``staff`` member and needs either edit permissions
-on the model that contains the :class:`~cms.models.fields.PlaceholderField`, or permissions for
+on the model that contains the :class:`~cms.models.fields.PlaceholderRelationField`, or permissions for
 that specific instance of that model. Required permissions for edit actions are:
 
 * to ``add``: require ``add`` **or** ``change`` permission on related Model or instance.
@@ -198,7 +166,7 @@ interface. Object-level permission can be handled by writing a custom authentica
 described in `django docs
 <https://docs.djangoproject.com/en/stable/topics/auth/customizing/#handling-object-permissions>`_
 
-For example, if there is a ``UserProfile`` model that contains a ``PlaceholderField`` then the
+For example, if there is a ``UserProfile`` model that contains a ``PlaceholderRelationField`` then the
 custom backend can refer to a ``has_perm`` method (on the model) that grants all rights to current
 user only based on the user's ``UserProfile`` object::
 
