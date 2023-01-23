@@ -32,11 +32,7 @@ Form fields
 
 .. autoclass:: cms.forms.fields.PageSelectFormField
     :members:
-    :show-inheritance:
-    :exclude-members: DoesNotExist, MultipleObjectsReturned
 
 .. autoclass:: cms.forms.fields.PageSmartLinkField
     :members:
-    :show-inheritance:
-    :exclude-members: DoesNotExist, MultipleObjectsReturned
 

@@ -6,7 +6,10 @@ How to install django CMS by hand
 
 ..  note::
 
-    This guide assumes that you are starting with a blank project, so you will need to adapt the steps below appropriately as required. This guide also assumes you have some basic familiarity with Python and Django.
+    This guide assumes that you are either starting with a **blank project (fresh install)**, or with an **existing Django project which you would like to integrate with django CMS (integration)**. The basic steps will be as described, however, your existing project might require you to adapt the steps below appropriately.
+
+    This guide also assumes you have some basic familiarity with Python and Django.
+
 
 ******************************
 Install the django CMS package
@@ -50,9 +53,9 @@ To add versioning support install::
     database inconsistencies can occur.
 
 
-****************************************
-Create a new project
-****************************************
+*****************************************
+Create a new project (fresh install only)
+*****************************************
 
 To create a new project run::
 
@@ -137,9 +140,7 @@ Database
 
 django CMS requires a relational database backend. Each django CMS installation should have its own database.
 
-You can use SQLite, which is included in Python and doesn't need to be installed separately or configured further. You
-are unlikely to be using that for a project in production, but it's ideal for development and exploration, especially
-as it is configured by default in a new Django project's :setting:`django:DATABASES`.
+You can use SQLite, which is included in Python and doesn't need to be installed separately or configured further. You are unlikely to be using that for a project in production, but it's ideal for development and exploration, especially as it is configured by default in a new Django project's :setting:`django:DATABASES`.
 
 ..  note::
 
@@ -157,8 +158,7 @@ as it is configured by default in a new Django project's :setting:`django:DATABA
         pip install psycopg2     # for Postgres
         pip install mysqlclient  # for MySQL
 
-    Refer to :setting:`Django's DATABASES setting documentation <django:DATABASES>` for the appropriate configuration
-    for your chosen database backend.
+    Refer to :setting:`Django's DATABASES setting documentation <django:DATABASES>` for the appropriate configuration for your chosen database backend.
 
 
 Database tables
@@ -181,8 +181,7 @@ Create an admin superuser::
 Using ``cms check`` for configuration
 *************************************
 
-Once you have completed the minimum required set-up described above, you can use django CMS's built-in ``cms check``
-command to help you identify and install other components. Run::
+Once you have completed the minimum required set-up described above, you can use django CMS's built-in ``cms check`` command to help you identify and install other components. Run::
 
     python manage.py cms check
 
@@ -190,8 +189,7 @@ This will check your configuration, your applications and your database, and rep
 
 ..  note::
 
-    If key components are be missing, django CMS will be unable to run the ``cms check command`` and will simply raise
-    an error instead.
+    If key components are be missing, django CMS will be unable to run the ``cms check command`` and will simply raise an error instead.
 
 After each of the steps below run ``cms check`` to verify that you have resolved that item in its checklist.
 
@@ -247,8 +245,7 @@ Add ``'cms.context_processors.cms_settings'`` to ``TEMPLATES['OPTIONS']['context
 
 Also add ``'django.template.context_processors.i18n'`` if it's not already present in ``TEMPLATES['OPTIONS']['context_processors']``.
 
-``cms check`` should now be unable to identify any further issues with your project. Some additional configuration is
-required however.
+``cms check`` should now be unable to identify any further issues with your project. Some additional configuration is required however.
 
 
 ******************************
@@ -258,25 +255,21 @@ Further required configuration
 URLs
 ====
 
-In the project's ``urls.py``, add ``url(r'^', include('cms.urls'))`` to the ``urlpatterns`` list. It should come after
-other patterns, so that specific URLs for other applications can be detected first. Note: when using Django 2.0 or
-later the syntax is ``re_path(r'^', include('cms.urls'))``
+In the project's ``urls.py``, add ``url("", include("cms.urls"))``. It should come after other patterns, so that specific URLs for other applications can be detected first.
 
 You'll also need to have an import for ``django.urls.include``. For example:
 
 ..  code-block:: python
     :emphasize-lines: 1,5
 
-    from django.urls import re_path, include
+    from django.urls import path, include
 
     urlpatterns = [
-        re_path(r'^admin/', admin.site.urls),
-        re_path(r'^', include('cms.urls')),
+        path("admin/", admin.site.urls),
+        path("", include("cms.urls")),
     ]
 
-The django CMS project will now run, as you'll see if you launch it with ``python manage.py runserver``. You'll be able
-to reach it at http://localhost:8000/, and the admin at http://localhost:8000/admin/. You won't yet actually be able to
-do anything very useful with it though.
+The django CMS project will now run, as you'll see if you launch it with ``python manage.py runserver``. You'll be able to reach it at http://localhost:8000/, and the admin at http://localhost:8000/admin/. You won't yet actually be able to do anything very useful with it though.
 
 
 .. _basic_template:
@@ -391,6 +384,8 @@ Adding version management functionality
 By default all page contents if automatically public since django CMS version 4. If you wish to add support for
 draft versions and publishing you will need to add ``djangocms-versioning`` to your project.
 
+.. code-block:: shell
+
     pip install git+https://github.com/django-cms/djangocms-versioning@master
 
 Add::
@@ -470,41 +465,60 @@ Django CMS CKEditor
 
 Install: ``pip install djangocms-text-ckeditor``.
 
-Add ``djangocms_text_ckeditor`` to your ``INSTALLED_APPS``.
+Add ``"djangocms_text_ckeditor"`` to your ``INSTALLED_APPS`` setting.
 
 Run migrations::
 
     python manage.py migrate djangocms_text_ckeditor
 
 
+Versioning support
+==================
+
+`Django CMS Versioning`_ is the default version manager for django CMS.
+
+.. _Django CMS Versioning: https://github.com/django-cms/djangocms-versioning
+
+Install: ``pip install djangocms-versioning`` and add ``"djangocms_versioning"`` to your ``INSTALLED_APPS`` setting. For more info see the section on :ref:`publishing` .
+
 Miscellaneous plugins
 =====================
 
-There are plugins for django CMS that cover a vast range of functionality. To get started, it's useful to be able to
-rely on a set of well-maintained plugins that cover some general content management needs.
+There are plugins for django CMS that cover a vast range of functionality. To get started, it's useful to be able to rely on a set of well-maintained plugins that cover some general content management needs.
 
-* `djangocms-link <https://github.com/django-cms/djangocms-link>`_
+* `djangocms-frontend <https://github.com/django-cms/djangocms-frontend>`_
 * `djangocms-file <https://github.com/django-cms/djangocms-file>`_
 * `djangocms-picture <https://github.com/django-cms/djangocms-picture>`_
 * `djangocms-video <https://github.com/django-cms/djangocms-video>`_
 * `djangocms-googlemap <https://github.com/django-cms/djangocms-googlemap>`_
-* `djangocms-snippet <https://github.com/django-cms/djangocms-snippet>`_
-* `djangocms-style <https://github.com/django-cms/djangocms-style>`_
 
 To install::
 
-    pip install djangocms-link djangocms-file djangocms-picture djangocms-video djangocms-googlemap djangocms-snippet
-        djangocms-style
+    pip install djangocms-frontend djangocms-file djangocms-picture djangocms-video djangocms-googlemap
 
 and add::
 
-    'djangocms_link',
+    'easy_thumbnails',
+    'djangocms_frontend',
+    'djangocms_frontend.contrib.accordion',
+    'djangocms_frontend.contrib.alert',
+    'djangocms_frontend.contrib.badge',
+    'djangocms_frontend.contrib.card',
+    'djangocms_frontend.contrib.carousel',
+    'djangocms_frontend.contrib.collapse',
+    'djangocms_frontend.contrib.content',
+    'djangocms_frontend.contrib.grid',
+    'djangocms_frontend.contrib.image',
+    'djangocms_frontend.contrib.jumbotron',
+    'djangocms_frontend.contrib.link',
+    'djangocms_frontend.contrib.listgroup',
+    'djangocms_frontend.contrib.media',
+    'djangocms_frontend.contrib.tabs',
+    'djangocms_frontend.contrib.utilities',
     'djangocms_file',
     'djangocms_picture',
     'djangocms_video',
     'djangocms_googlemap',
-    'djangocms_snippet',
-    'djangocms_style',
 
 to ``INSTALLED_APPS``.
 
