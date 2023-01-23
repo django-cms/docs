@@ -1,5 +1,5 @@
 ####################
-User side navigation
+User site navigation
 ####################
 
 .. highlight:: html+django

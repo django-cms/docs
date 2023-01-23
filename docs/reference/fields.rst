@@ -19,7 +19,6 @@ Model fields
     :exclude-members: DoesNotExist, MultipleObjectsReturned
 
 .. autoclass:: cms.models.fields.PlaceholderField
-    :members:
 
 
 ***********
