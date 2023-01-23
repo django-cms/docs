@@ -20,8 +20,6 @@ Model fields
 
 .. autoclass:: cms.models.fields.PlaceholderField
     :members:
-    :show-inheritance:
-    :exclude-members: DoesNotExist, MultipleObjectsReturned
 
 
 ***********

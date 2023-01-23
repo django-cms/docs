@@ -392,7 +392,7 @@ Add::
 
     'djangocms_versioning',
 
-to ``INSTALLED_APPS``.
+to ``INSTALLED_APPS``. For more info see the section on :ref:`publishing`.
 
 
 *************************************
@@ -471,15 +471,6 @@ Run migrations::
 
     python manage.py migrate djangocms_text_ckeditor
 
-
-Versioning support
-==================
-
-`Django CMS Versioning`_ is the default version manager for django CMS.
-
-.. _Django CMS Versioning: https://github.com/django-cms/djangocms-versioning
-
-Install: ``pip install djangocms-versioning`` and add ``"djangocms_versioning"`` to your ``INSTALLED_APPS`` setting. For more info see the section on :ref:`publishing` .
 
 Miscellaneous plugins
 =====================
