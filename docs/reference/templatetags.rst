@@ -81,59 +81,15 @@ context variables and change some other placeholder behaviour.
 static_placeholder
 ------------------
 
-The ``{% static_placeholder %}`` template tag can be used anywhere in a template element after
-the ``{% cms_toolbar %}`` tag. A static placeholder instance is not bound to any particular page
-or model - in other words, everywhere it appears, a static placeholder will hold exactly the same
-content.
+.. versionchanged:: 4.0
 
-The ``{% static_placeholder %}`` tag is normally used to display the same content on multiple
-locations or inside of apphooks or other third party apps.
+The ``static_placeholder`` template tag does work with django CMS 4. It will be removed in a future verison.
 
-Otherwise, a static placeholder behaves like a "normal" placeholder, to which plugins can be added.
+.. note::
 
-A static placeholder needs to be published to show up on live pages, and requires a name.
+    As a replacement use `django CMS Alias <https://github.com/django-cms/djangocms-alias>`_ instead. Once installed use ``{% laod djangocms_alias_tags %}`` and ``{% static_alias "footer" %}`` as a replacement for ``static_placeholder``
 
-Example::
-
-    {% load cms_tags %}
-
-    {% static_placeholder "footer" %}
-
-.. image:: /reference/images/static-placeholder.png
-   :alt: a static placeholder
-   :align: center
-
-..  note::
-
-    To reduce clutter in the interface, the plugins in static placeholders are hidden by default.
-    Click or tap on the name of the static placeholder to reveal/hide them.
-
-If you want additional content to be displayed in case the static placeholder is
-empty, use the ``or`` argument and an additional ``{% endstatic_placeholder %}``
-closing tag. Everything between ``{% static_placeholder "..." or %}`` and ``{%
-endstatic_placeholder %}`` is rendered in the event that the placeholder has no plugins or
-the plugins do not generate any output.
-
-Example::
-
-    {% static_placeholder "footer" or %}There is no content.{% endstatic_placeholder %}
-
-By default, a static placeholder applies to *all* sites in a project.
-
-If you want to make your static placeholder site-specific, so that different sites can have their
-own content in it, you can add the flag ``site`` to the template tag to achieve this.
-
-Example::
-
-    {% static_placeholder "footer" site or %}There is no content.{% endstatic_placeholder %}
-
-Note that the `Django "sites" framework <https://docs.djangoproject.com/en/dev/ref/contrib/sites/>`_ *is* required and
-``SITE_ID`` *must* be set in ``settings.py`` for this (not to mention other aspects of django CMS) to work correctly.
-
-..  important::
-
-    ``{% static_placeholder %}`` will only work inside the template's ``<body>``.
-
+    In connection with django CMS Versioning you can better manage versions of page parts that appear at several instances on your pages.
 
 ..  templatetag:: render_placeholder
 
