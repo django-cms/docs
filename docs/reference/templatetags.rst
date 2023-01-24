@@ -83,7 +83,7 @@ static_placeholder
 
 .. versionchanged:: 4.0
 
-The ``static_placeholder`` template tag does work with django CMS 4. It will be removed in a future verison.
+The ``static_placeholder`` template tag does **not** work with django CMS 4. It will be removed in a future version.
 
 .. note::
 
