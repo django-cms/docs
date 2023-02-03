@@ -25,4 +25,4 @@ Technical reference material.
     toolbar
     utility-functions
     wizards
-
+    icons
