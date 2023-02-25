@@ -1,6 +1,6 @@
 # django CMS 4.1 documentation 
 
-This is a temproary repo to ramp up django CMS v4 documentation. It is planned to include the contents of this repo in the django-cms repository 
+This is a temporary repo to ramp up django CMS v4 documentation. It is planned to include the contents of this repo in the django-cms repository 
 before release  of django CMS 4.1.
 
 Our goal is to create an improved documentation basis which ensures new users of django CMS and experienced programmers a positive experience when 
@@ -12,7 +12,7 @@ See the [current status here](https://django-cms-docs.readthedocs.io/en/latest/)
 ## Status
 
 This repo has started as an empty framework which has been filled step-by-step with django CMS 4 relevant content. Some of it is an adaptation of 
-the django CMS 3 documentation somne of it is a rewrite. 
+the django CMS 3 documentation some of it is a rewrite. 
 
 Many sections are empty. This is an indication that your contribution is not only valued but also will make a great difference. 
 
@@ -51,7 +51,7 @@ If you have tried using django CMS 4 and found issues **with the documentation**
 
 ## Trying to figure something out
 
-There is an extensive list of change notes in the [release notes](https://django-cms-docs.readthedocs.io/en/latest/upgrade/index.html) which might give you (be it brief) hints on topics not yet covered here.
+There is an extensive list of change notes in the [release notes](https://django-cms-docs.readthedocs.io/en/latest/upgrade/4.0.html) which might give you (be it brief) hints on topics not yet covered here.
 
 ## The django CMS Association
 
