@@ -22,6 +22,13 @@
 
             .column2  {
                 width: calc(50% - 11px);
+                position: relative;
+            }
+            .column2:before {
+                padding-top: 61.8%;
+                content: "";
+                display: block;
+                float: left;
             }
             .top-left {
                 border-right: 1px solid var(--color-background-border);
@@ -60,21 +67,25 @@ create a site that is tailored to their precise needs.
 
 .. rst-class:: column column2 top-left
 
-:ref:`tutorials` - start here
-=============================
+:ref:`tutorials`
+================
 
-For the new django CMS developer, from installation to creating your own addon applications.
+**Start here as a new django CMS developer**:
+
+* installation
+* using additional packages
+* creating your own addon applications.
 
 .. rst-class:: column column2 top-right
 
 :ref:`how-to`
 =============
 
-Practical step-by-step guides for the more experienced developer, covering several important topics.
+Practical **step-by-step guides** for the more experienced developer, covering several important topics.
 
 .. rst-class:: column column2 bottom-left
 
-:ref:`key-topics`
+:ref:`explanation`
 =================
 
 Explanation and analysis of some key concepts in django CMS.
@@ -84,7 +95,12 @@ Explanation and analysis of some key concepts in django CMS.
 :ref:`reference`
 ================
 
-Technical reference material, for classes, methods, APIs, commands.
+Technical reference material, for
+
+* classes,
+* methods,
+* APIs,
+* commands.
 
 
 
