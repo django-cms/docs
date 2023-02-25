@@ -17,6 +17,7 @@ the django CMS 3 documentation some of it is a rewrite.
 Many sections are empty. This is an indication that your contribution is not only valued but also will make a great difference. 
 
 * There is a summary of the [status of key plugin packages](https://django-cms-docs.readthedocs.io/en/latest/explanation/commonly_used_plugins.html).
+* Explanation of the new [publishing and versioning system](https://django-cms-docs.readthedocs.io/en/latest/explanation/publishing.html)
 * How-to-guides:
   - A rough guideline on [how to upgrade your plugins](https://django-cms-docs.readthedocs.io/en/latest/how_to/10a-upgrade_plugins.html)
   - New way of [using placeholders outside the CMS](https://django-cms-docs.readthedocs.io/en/latest/how_to/02-placeholders.html).
