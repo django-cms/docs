@@ -55,25 +55,20 @@ When a page is published, is publicly visible even if its parent pages are not p
 Code and PageContent
 ********************
 
-When handling :class`~cms.models.pagemcdel.Page` in code, you'll generally only "see"
-published pages:
+When handling :class`~cms.models.contentmodels.PageContent` in code, you'll generally only "see" published pages:
 
 .. code-block::
 
     PageContent.objects.filter(language="en")   # get all published English page contents
 
-will only give published pages. This is to ensure that no draft or unpublished version
-leaks or becomes visible to the public.
+will only give published pages. This is to ensure that no draft or unpublished versions
+leaks or become visible to the public.
 
-Since often draft page contents are the ones you interact with in the admin, or in
-draft mode in the CMS frontend, there djangocms-versioning introduces an additional
-model manager for the PageContents **which may only be used on admin sites and admin
-forms**::
+Since often draft page contents are the ones you interact with in the admin interface, or in draft mode in the CMS frontend, djangocms-versioning introduces an additional model manager for the PageContents **which may only be used on admin sites and admin forms**::
 
     PageContent.admin_manager.filter(page=my_page, language="en")
 
-will retrieve page content objects of all versions. To get the current draft version
-it is often easier to filter the ``Version`` object::
+will retrieve page content objects of all versions. Alternativley, to get the current draft version you can to filter the ``Version`` object::
 
     from djangocms_versioning.constants import DRAFT
     from djangocms_versioning.models import Version
@@ -81,18 +76,13 @@ it is often easier to filter the ``Version`` object::
     version = Version.objects.get(content__page=my_page, content__language="en", status=DRAFT)
     draft_content = Version.content
 
-Finally, there are instance where you want to access the "current" version of a page. This is
-either the current draft version or - there is no draft - the published version. You can easily achieve this by using::
+Finally, there are instance where you want to access the "current" version of a page. This is either the current draft version or - there is no draft - the published version. You can easily achieve this by using::
 
     for content in PageContent.admin_manager.filter(page=my_page).current_content():
         # iterates over the current (draft or published) version of all languages of my page
         if content.versions.first().state == DRAFT:
             # do something
 
-.. note::
-
-  ``corrent_content_iterator`` does not return a queryset but allows to iterate of the
-  elements of the queryset that correspond to the current version.
 
 For more details see the
 `documentation of djangocms-versioning <https://djangocms-versioning.readthedocs.io>`_!
