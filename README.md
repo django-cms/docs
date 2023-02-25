@@ -1,18 +1,17 @@
 # django CMS 4.1 documentation 
 
-This is a temporary repo to ramp up django CMS v4 documentation. It is planned to include the contents of this repo in the django-cms repository 
-before release  of django CMS 4.1.
+This is a temporary repo to ramp up django CMS v4 documentation. It is planned to include the contents of this repo in the django-cms repository before release  of django CMS 4.1.
 
-Our goal is to create an improved documentation basis which ensures new users of django CMS and experienced programmers a positive experience when 
-starting to work with django CMS 4
+Our goal is to create an improved documentation basis which ensures new users of django CMS and experienced programmers a positive experience when starting to work with django CMS 4.
+
+The django CMS documentation follows the [Diátaxis framework](https://diataxis.fr) by Daniele Procida.
 
 See the [current status here](https://django-cms-docs.readthedocs.io/en/latest/).
 
 
 ## Status
 
-This repo has started as an empty framework which has been filled step-by-step with django CMS 4 relevant content. Some of it is an adaptation of 
-the django CMS 3 documentation some of it is a rewrite. 
+This repo has started as an empty framework which has been filled step-by-step with django CMS 4 relevant content. Some of it is an adaptation of the django CMS 3 documentation some of it is a rewrite. 
 
 Many sections are empty. This is an indication that your contribution is not only valued but also will make a great difference. 
 

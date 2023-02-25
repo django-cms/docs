@@ -81,10 +81,10 @@ it is often easier to filter the ``Version`` object::
     version = Version.objects.get(content__page=my_page, content__language="en", status=DRAFT)
     draft_content = Version.content
 
-Finally, there are instance where you want to access the "latest" version of a page. This is
-either the current draft version. You can easily achieve this by using::
+Finally, there are instance where you want to access the "current" version of a page. This is
+either the current draft version or - there is no draft - the published version. You can easily achieve this by using::
 
-    for content in PageContent.admin_manager.filter(page=my_page).current_content_iterator():
+    for content in PageContent.admin_manager.filter(page=my_page).current_content():
         # iterates over the current (draft or published) version of all languages of my page
         if content.versions.first().state == DRAFT:
             # do something
