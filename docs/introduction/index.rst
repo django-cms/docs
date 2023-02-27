@@ -25,7 +25,6 @@ in the order presented here.
 
 .. toctree::
     :maxdepth: 1
-    :numbered:
 
     01-install
     02-templates_placeholders
