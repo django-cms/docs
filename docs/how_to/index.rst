@@ -8,16 +8,6 @@ These guides presuppose some familiarity with django CMS. They cover some of
 the same territory as the :doc:`/introduction/index`, but in more detail.
 
 
-******
-Set-up
-******
-
-.. toctree::
-    :maxdepth: 1
-
-    Install django CMS by hand <01-install>
-
-
 ************************
 Using core functionality
 ************************
