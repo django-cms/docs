@@ -26,14 +26,17 @@ By default, pages in your site will use the ``fullwidth.html`` template, the fir
 the project's ``settings.py`` ``CMS_TEMPLATES`` tuple:
 
 ..  code-block:: python
-    :emphasize-lines: 3
+    :emphasize-lines: 6
 
-    CMS_TEMPLATES = (
-        ## Customize this
-        ('fullwidth.html', 'Fullwidth'),
-        ('sidebar_left.html', 'Sidebar Left'),
-        ('sidebar_right.html', 'Sidebar Right')
-    )
+  CMS_TEMPLATES = [
+      # a minimal template to get started with
+      ('minimal.html', 'Minimal template'),
+
+      # optional templates that extend base.html, to be used with Bootstrap 5
+      ('bootstrap5.html', 'Bootstrap 5 Demo'),
+
+      ('whitenoise-static-files-demo.html', 'Static File Demo'),
+  ]
 
 
 ************
