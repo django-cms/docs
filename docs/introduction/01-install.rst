@@ -245,6 +245,22 @@ You can use SQLite, which is included in Python and doesn't need to be installed
 
     Refer to :setting:`Django's DATABASES setting documentation <django:DATABASES>` for the appropriate configuration for your chosen database backend.
 
+Confirming that you are not migrating a version 3 project
+---------------------------------------------------------
+
+Add to ``settings.py``::
+
+    CMS_CONFIRM_VERSION4 = True
+
+This is to ensure that you do not accidentally run migrations on a django CMS version 3 database. This can lead to corruption since the data structures for the `CMSPlugin' models are different.
+
+.. warning::
+
+    Do not add ``CMS_CONFIRM_VERSION4 = True`` to your django CMS version 3 project unless you know what you are doing.
+
+.. info::
+
+    To migrate a django CMS version 3 project to version 4 you can have a look at `django CMS 4 migration <https://github.com/Aiky30/djangocms-4-migration>`_. This is a third party project supposed to assist the migration from v3 to v4. It is not (yet) officially supported.
 
 Database tables
 ---------------
