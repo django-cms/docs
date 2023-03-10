@@ -1154,6 +1154,29 @@ default
     PageContent edit/preview endpoint.
 
 
+.. setting:: CMS_REDIRECT_PRESERVE_QUERY_PARAMS
+
+CMS_REDIRECT_PRESERVE_QUERY_PARAMS
+==================================
+
+default
+    ``False``
+
+This indicates to the CMS that redirects should preserve the query parameters.
+
+
+..  setting:: CMS_REDIRECT_TO_LOWERCASE_SLUG
+
+CMS_REDIRECT_TO_LOWERCASE_SLUG
+==============================
+
+default
+    ``False``
+
+This indicates to the CMS that it should redirect requests with an non-lowercase
+slug to its lowercase version if no page with that slug is found.
+
+
 CMS_CONFIRM_VERSION4
 ====================
 
