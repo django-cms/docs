@@ -62,8 +62,6 @@ djangocms-icons               Adds support for Fontawesome icons        supports
 ----------------------------- ----------------------------------------- -------------------
 djangocms-picture             Add images to your site                   no issues known
 ----------------------------- ----------------------------------------- -------------------
-djangocms-link                Add links on your site                    no issues known
------------------------------ ----------------------------------------- -------------------
 djangocms-admin-style         django CMS design for Django's admin      supports v4.1 as of
                               backend                                   v3.2.1
 ============================= ========================================= ===================
@@ -98,6 +96,8 @@ Packages not (yet) supporting version 4
 ============================= ========================================= ===================
 Package                       Description                               Status
 ============================= ========================================= ===================
+djangocms-link                Add links on your site                    not yet supported
+----------------------------- ----------------------------------------- -------------------
 djangocms-blog                django CMS blog application - Support for
                               multilingual posts, placeholders, social
                               network meta tags and configurable
