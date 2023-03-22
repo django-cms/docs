@@ -42,6 +42,17 @@ Status indicators in page tree
 * Djangocms-versioning will add more functionality to the indicators (e.g.,
   publish from page tree).
 
+Admin support for grouper and content models
+============================================
+
+For a more consistent user experience django CMS 4.1 provides admin support for grouper and content models. This pattern is used to define what contents are to be versioned when using a versioning package such as djangocms-versioning. Content to be versioned resides in a content model. The grouper model is the entity a content model is a version of which. Typically content models contain placeholders which are edited using that django CMS v4 endpoints.
+
+* Action buttons for the change list view as known from djangocms-versioning (provided by the :class:~cms.admin.utils.AdminListActionsMixin`)
+* Default buttons for viewing the content at the preview endpoint and for changing the "settings" (all other model components that are not edited in the frontend).
+* A new :class:`~cms.admin.utils.GrouperModelAdmin` class for which allows to also switch change list views and add/change views for extra grouping fields (currently implemented for language as an extra grouping field).
+* A new :class:`~cms.admin.utils.GrouperModelForm` to allow common editing of grouper and content fields (if editable)
+
+
 
 Bug Fixes
 ---------
