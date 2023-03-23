@@ -331,7 +331,7 @@ The attribute ``cmsapp`` shall point on an apphook class, for instance ``PollsAp
 set to ``None``, then Django CMS will take care of doing so.
 
 The field ``namespace`` is mandatory and shall be decalred to be unique. It is used as identifier,
-whenever the ower of a CMS page attaches it to a given apphook. Next, we must tell our apphook to
+whenever the owner of a CMS page attaches it to a given apphook. Next, we must tell our apphook to
 use that configuration model.
 
 To capture the configuration that different instances of an apphook can take, a Django model needs
