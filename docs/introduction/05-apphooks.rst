@@ -52,7 +52,7 @@ Remove the old ``polls`` entry from the project's ``urls.py``
 
 You must now remove the entry for the Polls application::
 
-    re_path(r'^polls/', include('polls.urls', namespace='polls'))
+    path('^polls/', include('polls.urls', namespace='polls'))
 
 from your project's ``urls.py``.
 
@@ -89,8 +89,11 @@ In its *Advanced settings* (from the toolbar, select *Page > Advanced settings..
 Refresh the page, and you'll find that the Polls application is now available
 directly from the new django CMS page.
 
+This apphook's primary view is handled by the class `polls.views.IndexView`. This view then is in full control for rendering that page, just like a normal Django view would do.
+
 ..  important::
 
     Don't add child pages to a page with an apphook.
 
     The apphook "swallows" all URLs below that of the page, handing them over to the attached application. If you have any child pages of the apphooked page, django CMS will not be able to serve them reliably.
+
