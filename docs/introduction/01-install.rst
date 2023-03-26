@@ -37,19 +37,19 @@ For the sake of this demonstration we will use Option 2, please read on.
 Setup Docker (Step 1)
 *********************
 
-Install docker from `here <https://docs.docker.com/get-docker/>`_
+Install docker from `here <https://docs.docker.com/get-docker/>`_. If you have not used docker in the past, please read `this introduction on docker <https://docs.docker.com/get-started/>`_.
 
 Run the demo project in docker (Step 2)
 ****************************************
 
-Info: The `demo project <https://github.com/django-cms/django-cms-quickstart>`_ is a minimal Django project with some additional requirements in the requirements.txt.
+Info: The `demo project <https://github.com/django-cms/django-cms-quickstart/tree/support/cms-4.1.x>`_ is a minimal Django project with some additional requirements in the ``requirements.txt``.
 
-For more details see its Open the terminal application on your computer and go to a safe folder (i.e. cd ~/Projects), then
+For more details see its Open the terminal application on your computer and go to a safe folder (i.e. ``cd ~/Projects``), then
 
 .. code-block:: bash
 
       git clone git@github.com:django-cms/django-cms-quickstart.git
-      
+
       cd django-cms-quickstart
       git switch -t origin/support/cms-4.1.x
       docker compose build web
@@ -640,9 +640,6 @@ Next steps
 
 If this is your first django CMS project, read through the :ref:`user-tutorial` for a walk-through of some basics.
 
-The :ref:`tutorials for developers <tutorials>` will help you understand how to approach django CMS as a developer.
-Note that the tutorials assume you have installed the CMS using the django CMS Installer, but with a little
-adaptation you'll be able to use it as a basis.
+The :ref:`tutorials for developers <tutorials>` will help you understand how to approach django CMS as a developer. Note that the tutorials assume you have installed the CMS using the django CMS quickstart project, but with a little adaptation you'll be able to use it as a basis.
 
-To deploy your django CMS project on a production web server, please refer to the :doc:`Django deployment documentation
-<django:howto/deployment/index>`.
+To deploy your django CMS project on a production web server, please refer to the :doc:`Django deployment documentation <django:howto/deployment/index>`.
