@@ -44,12 +44,14 @@ Run the demo project in docker (Step 2)
 
 Info: The `demo project <https://github.com/django-cms/django-cms-quickstart>`_ is a minimal Django project with some additional requirements in the requirements.txt.
 
-Open the terminal application on your computer and go to a safe folder (i.e. cd ~/Projects), then
+For more details see its Open the terminal application on your computer and go to a safe folder (i.e. cd ~/Projects), then
 
 .. code-block:: bash
 
-      git clone https://github.com/django-cms/django-cms-quickstart.git@support/cms-4.1.x
+      git clone git@github.com:django-cms/django-cms-quickstart.git
+      
       cd django-cms-quickstart
+      git switch -t origin/support/cms-4.1.x
       docker compose build web
       docker compose up -d database_default
       docker compose run web python manage.py migrate
