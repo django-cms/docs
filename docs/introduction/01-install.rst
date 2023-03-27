@@ -21,7 +21,7 @@ Before we begin the django CMS tutorial, you will need to know that there are se
 
 2. As another option, you can set up the project `using docker <https://www.django-cms.org/en/blog/2021/01/19/how-you-spin-up-a-django-cms-project-in-less-than-5-minutes/>`_. It is a good way for a developer locally without an external vendor and we use this option in this django CMS demo.
 
-3. The last option is to install :ref:`django CMS manually by using virtualenv <install-django-cms-by-hand>`. This option is a good way for developers that want to install everything by hand to understand better, have full control, or want to add to an exisiting Djanog project.
+3. The last option is to install :ref:`django CMS manually by using virtualenv <install-django-cms-by-hand>`. This option is a good way for developers that want to install everything by hand to understand better, have full control, or want to add to an existing Django project.
 
 In this tutorial we will cover both number 2 and 3.
 
