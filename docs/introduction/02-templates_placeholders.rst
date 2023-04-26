@@ -25,6 +25,7 @@ You'll find the site's templates in ``django-cms-quickstart/backend/templates``.
 By default, pages in your site will use the ``fullwidth.html`` template, the first one listed in
 the project's ``settings.py`` ``CMS_TEMPLATES`` tuple:
 
+
 ..  code-block:: python
     :emphasize-lines: 6
 
