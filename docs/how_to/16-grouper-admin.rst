@@ -6,21 +6,23 @@
 How to crate an admin class for a grouper model
 ###############################################
 
-***********************
-What is a grouper model
-***********************
+************************
+What is a grouper model?
+************************
 
-django CMS uses the grouper content model structure for pages:
+It's an reusable abstract structural pattern, that is in django CMS used to separate language independent and and language specific content.
 
-* The :class:`~cms.models.pagemodel.Page` is the grouper model and defines a unit (page) which can have more than one content object (page titles in different languages, for example).
+django CMS defines grouper-content structure for Page-PageContent as follows:
 
-* The :class:`~cms.models.contentmodels.PageContent` is the corresponding content model which contains page content that can be different for its grouping field ``language``. It also includes the placeholders for the frontend editor.
+* The :class:`~cms.models.pagemodel.Page` is the grouper model which represents base unit, that can have multiple content objects attached
 
-This mechanism ensures that content that is common for all pages of a languages, such as position in the page tree, or rights, are collected at the grouper model while all language-specific content is collected in the content model.
+* The :class:`~cms.models.contentmodels.PageContent` is the content model which represents page content that can be different for its grouping field - ``language`` in our case. It also includes the placeholders for the frontend editor.
+
+This mechanism ensures that language-independent properties of a page, such as position in the page tree or permissions, are collected at the grouper model while language-specific content is collected in the content model.
 
 .. note::
 
-    Also this data structure is relevant for django CMS Versioning since it versions the content objects and not the grouper objects.
+    This pattern is relevant for django CMS Versioning since it versions the content objects and not the grouper objects.
 
     To this end, if you want to create models that should be versionable like the :class:`~cms.models.contentmodels.PageContent` of a :class:`~cms.models.pagemodel.Page` objects you need to define a grouper and a content model.
 
@@ -42,6 +44,8 @@ To create a model admin class for a grouper model put the following code in your
 
 .. code-block:: python
 
+    from cms.admin.utils import GrouperModelAdmin
+    
     class MyGrouperAdmin(GrouperModelAdmin):
         # Declare content model
         content_model = MyContent
@@ -82,6 +86,8 @@ This is an example (taken from django CMS alias) on how a grouper admin might lo
 
 .. code-block:: python
 
+    from cms.admin.utils import GrouperModelAdmin
+    
     @admin.register(Alias)
     class AliasAdmin(GrouperModelAdmin):
         list_display = ['content__name', 'category', 'admin_list_actions']
@@ -146,8 +152,9 @@ Providing the required context
 To provide the required context for your additional grouping model, you will have to implement two methods in your grouper model admin.
 
 .. code-block:: python
+    from cms.admin.utils import GrouperModelAdmin
 
-    class MyGrouperModelAdmin(GrouperModelAdmin):
+    class MyGrouperAdmin(GrouperModelAdmin):
         model = MyModel
         extra_grouping_fields = ("region", )
 
