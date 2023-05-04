@@ -250,7 +250,7 @@ You can use SQLite, which is included in Python and doesn't need to be installed
 Disable BigAutoField
 --------------------
 
-Since Django 3.2 `django-admin startproject` command creates `setting.py` with enhancement for DB autoincrement primary keys `DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'`. Django CMS was build against Django defaults, so you should remove this setting to get default behaviour which is equal to setting `DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'`.
+Since Django 3.2 `django-admin startproject` command creates `setting.py` with enhancement for DB autoincrement primary keys `DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'`. Django CMS was build against Django defaults, so you should change this setting to `DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'` to get default behaviour. If you remove this setting completely it will work as well, but migrations will be noisy displaying hint to have this explicit.
 
 .. info::
 
