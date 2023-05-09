@@ -247,15 +247,6 @@ You can use SQLite, which is included in Python and doesn't need to be installed
 
     Refer to :setting:`Django's DATABASES setting documentation <django:DATABASES>` for the appropriate configuration for your chosen database backend.
 
-Disable BigAutoField
---------------------
-
-Since Django 3.2 `django-admin startproject` command creates `setting.py` with enhancement for DB autoincrement primary keys `DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'`. Django CMS was build against Django defaults, so you should change this setting to `DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'` to get default behaviour. If you remove this setting completely it will work as well, but migrations will be noisy displaying hint to have this explicit.
-
-.. info::
-
-    If you keep `DEFAULT_AUTO_FIELD` in `settings.py` as was created by `django-admin startproject` you will get error of missing migrations in most django CMS related models (packages installed via pip), in minimal install of django CMS applications `cms` and `menus` are reporting missing migrations.
-
 Confirming that you are not migrating a version 3 project
 ---------------------------------------------------------
 
@@ -274,7 +265,7 @@ This is to ensure that you do not accidentally run migrations on a django CMS ve
     To migrate a django CMS version 3 project to version 4 you can have a look at `django CMS 4 migration <https://github.com/Aiky30/djangocms-4-migration>`_. This is a third party project supposed to assist the migration from v3 to v4. It is not (yet) officially supported.
 
 Database tables
-===============
+---------------
 
 Now run migrations to create database tables for the new applications::
 
