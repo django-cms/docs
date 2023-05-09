@@ -73,7 +73,7 @@ Create a new **Poll**, for example:
     * *Firefox*
     * *Chrome*
 
-Now if you visit ``http://localhost:8000/en/polls/``, you should be able to see the published poll and submit a response.
+Now if you visit ``http://localhost:8000/en/polls/``, you should be able to see the poll and submit a response.
 
 .. image:: /introduction/images/polls-unintegrated.png
    :alt: the polls application
