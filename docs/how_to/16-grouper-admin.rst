@@ -10,7 +10,7 @@ How to crate an admin class for a grouper model
 What is a grouper model?
 ************************
 
-It's an reusable abstract structural pattern, that is in django CMS used to separate language independent and and language specific content.
+It's an reusable abstract structural pattern, that is in django CMS used to separate language independent and language specific content.
 
 django CMS defines grouper-content structure for Page-PageContent as follows:
 
