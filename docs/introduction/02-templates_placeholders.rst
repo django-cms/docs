@@ -20,9 +20,11 @@ You can define multiple templates, with different layouts or built-in
 components, and choose them for each page as required. A page's template
 can be switched for another at any time.
 
-You'll find the site's templates in ``django-cms-quickstart/backend/templates`` if your using the quickstarter project.
+You'll find the site's templates in ``django-cms-quickstart/backend/templates``.
 
-By default, pages in your site will use the ``fullwidth.html`` template, the first one listed in the project's ``settings.py`` ``CMS_TEMPLATES`` tuple:
+By default, pages in your site will use the ``fullwidth.html`` template, the first one listed in
+the project's ``settings.py`` ``CMS_TEMPLATES`` tuple:
+
 
 ..  code-block:: python
     :emphasize-lines: 6
