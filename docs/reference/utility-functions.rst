@@ -7,6 +7,27 @@ Utility functions
 Utility functions provide functionality that is regularly used within the django CMS core and are also available to
 third party packages.
 
+*************
+Model admin
+*************
+
+.. module:: cms.admin.utils
+
+Action buttons
+**************
+
+.. autoclass:: ChangeListActionsMixin
+    :members:
+    :show-inheritance:
+
+Grouper admin
+*************
+
+.. autoclass:: GrouperModelAdmin
+    :members:
+    :show-inheritance:
+
+
 ************
 Placeholders
 ************
