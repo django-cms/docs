@@ -49,13 +49,13 @@ Each new draft version will generate a new version number.
      :align: center
      :alt: Version states
 
-When a page is published, is publicly visible even if its parent pages are not published.
+When a page is published, it is publicly visible even if its parent pages are not published.
 
 ********************
 Code and PageContent
 ********************
 
-When handling :class`~cms.models.contentmodels.PageContent` in code, you'll generally only "see" published pages:
+When handling :class:`~cms.models.contentmodels.PageContent` in code, you'll generally only "see" published pages:
 
 .. code-block::
 
