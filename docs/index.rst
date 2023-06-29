@@ -51,6 +51,17 @@ django CMS documentation
 .. image:: /images/django-cms-logo.png
    :alt: django CMS logo
 
+**********
+Philosophy
+**********
+
+The design philosophy of django-cms is to create something complex with many simple things.
+
+The core of django-cms is designed to be simple and integrate with simple packages to create 
+complex applications. For example, you may add ``djangocms-versioning`` to manage versions 
+of your content, ``djangocms-moderation`` to define workflows for how content moves from 
+authoring to being published.
+
 ********
 Overview
 ********
