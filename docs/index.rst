@@ -188,13 +188,17 @@ Software version requirements and release notes
 
 This document refers to version |release|.
 
-Long-term support
-=================
+Long-term support (LTS)
+=======================
 
 Django has a `long-term support (LTS) <https://www.djangoproject.com/download/#supported-versions>`_
 policy which django CMS adapts.
 
-This is the current LTS table
+Deisgnated django CMS versions receive support for use with official Django LTS
+versions:
+
+Current LTS table
+-----------------
 
 ==========  ==============  ======  ========================
 django CMS  Feature freeze  Django  End of long-term support
@@ -208,7 +212,10 @@ django CMS  Feature freeze  Django  End of long-term support
 After feature freeze new features go into the next major version
 of django CMS.
 
-The following LTS versions do not receive any support any more:
+Unsupported LTS versions
+------------------------
+
+The following LTS versions **do not** receive any support any more:
 
 ==========  ==============  ======  ========================
 django CMS  Feature freeze  Django  End of long-term support
