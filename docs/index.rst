@@ -213,7 +213,7 @@ The following LTS versions do not receive any support any more:
 ==========  ==============  ======  ========================
 django CMS  Feature freeze  Django  End of long-term support
 ==========  ==============  ======  ========================
-3.8 x       June 20201      2.2     April 2022
+3.8 x       June 2020       2.2     April 2022
 3.7.x       October 2020    2.2     April 2022
 \           \               1.11    April 2020
 ==========  ==============  ======  ========================
