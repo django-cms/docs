@@ -57,9 +57,9 @@ Philosophy
 
 The design philosophy of django-cms is to solve something complex with many simple things.
 
-The core of django-cms is designed to be simple and integrate with simple packages to create 
-complex applications. For example, you may add ``djangocms-versioning`` to manage versions 
-of your content, ``djangocms-moderation`` to define workflows for how content moves from 
+The core of django-cms is designed to be simple and integrate with simple packages to create
+complex applications. For example, you may add ``djangocms-versioning`` to manage versions
+of your content, ``djangocms-moderation`` to define workflows for how content moves from
 authoring to being published.
 
 ********
@@ -188,6 +188,36 @@ Software version requirements and release notes
 
 This document refers to version |release|.
 
+Long-term support
+=================
+
+Django has a `long-term support (LTS) <https://www.djangoproject.com/download/#supported-versions>`_
+policy which django CMS adapts.
+
+This is the current LTS table
+
+==========  ==============  ======  ========================
+django CMS  Feature freeze  Django  End of long-term support
+==========  ==============  ======  ========================
+4.1 x       tbd             4.2     April 2026
+                            3.2     April 2024
+3.11.x      September 2023  4.2     April 2026
+                            3.2     April 2024
+==========  ==============  ======  ========================
+
+After feature freeze new features go into the next major version
+of django CMS.
+
+The following LTS versions do not receive any support any more:
+
+==========  ==============  ======  ========================
+django CMS  Feature freeze  Django  End of long-term support
+==========  ==============  ======  ========================
+3.8 x       June 20201      2.2     April 2022
+3.7.x       October 2020    2.2     April 2022
+                            1.11    April 2020
+==========  ==============  ======  ========================
+
 
 Django/Python compatibility table
 =================================
@@ -198,23 +228,23 @@ by a long-term support policy.
 *✓* indicates that the version has been tested and works. *×* indicates that it has not been tested, or
 is known to be incompatible.
 
-===========  ==== ==== === === === === ===  === === === === === === === === ====
-django CMS   Python                              Django
------------  -----------------------------  ------------------------------------
-\            3.11 3.10 3.9 3.8 3.7 3.6 3.5  4.1 4.0 3.2 3.1 3.0 2.2 2.1 2.0 1.11
-===========  ==== ==== === === === === ===  === === === === === === === === ====
-4.1.x        ✓    ✓    ✓   ✓   ✓   ×   ×    ✓   ✓   ✓   ✓   ✓   ✓   ×   ×   ×
-3.11.1       ✓    ✓    ✓   ✓   ✓   ×   ×    ✓   ✓   LTS ×   ×   ×   ×   ×   ×
-3.11.0       ✓    ✓    ✓   ✓   ✓   ×   ×    ×   ✓   ✓   ×   ×   ×   ×   ×   ×
-3.10.x       ×    ✓    ✓   ✓   ✓   ×   ×    ×   ×   ✓   ✓   ✓   ✓   ×   ×   ×
-3.9.x        ×    ×    ✓   ✓   ✓   ✓   ×    ×   ×   ✓   ✓   ✓   ✓   ×   ×   ×
-3.8.x        ×    ×    ✓   ✓   ✓   ✓   ×    ×   ×   ×   ✓   ✓   LTS ×   ×   ×
-3.7.x        ×    ×    ✓   ✓   ✓   ✓   ✓    ×   ×   ×   ×   ✓   LTS ✓   ✓   LTS
-3.6.x        ×    ×    ×   ✓   ✓   ✓   ✓    ×   ×   ×   ×   ×   ✓   ✓   ✓   ✓
-3.5.x        ×    ×    ×   ✓   ✓   ✓   ✓    ×   ×   ×   ×   ×   ×   ×   ×   ✓
-3.4.5        ×    ×    ×   ×   ✓   ✓   ✓    ×   ×   ×   ×   ×   ×   ×   ×   LTS
-===========  ==== ==== === === === === ===  === === === === === === === === ====
-
+===========  ==== ==== === === === === ===  === === === === === === === === === ====
+django CMS   Python                                  Django
+-----------  -----------------------------  ----------------------------------------
+\            3.11 3.10 3.9 3.8 3.7 3.6 3.5  4.2 4.1 4.0 3.2 3.1 3.0 2.2 2.1 2.0 1.11
+===========  ==== ==== === === === === ===  === === === === === === === === === ====
+4.1.x        ✓    ✓    ✓   ×   ×   ×   ×    LTS ✓   ✓   LTS ×   ×   ×   ×   ×   ×
+3.11.3+      ✓    ✓    ✓   ✓   ✓   ×   ×    LTS ✓   ✓   LTS ×   ×   ×   ×   ×   ×
+3.11.1       ✓    ✓    ✓   ✓   ✓   ×   ×    ×   ✓   ✓   ✓   ×   ×   ×   ×   ×   ×
+3.11.0       ✓    ✓    ✓   ✓   ✓   ×   ×    ×   ×   ✓   ✓   ×   ×   ×   ×   ×   ×
+3.10.x       ×    ✓    ✓   ✓   ✓   ×   ×    ×   ×   ×   ✓   ✓   ✓   ✓   ×   ×   ×
+3.9.x        ×    ×    ✓   ✓   ✓   ✓   ×    ×   ×   ×   ✓   ✓   ✓   ✓   ×   ×   ×
+3.8.x        ×    ×    ✓   ✓   ✓   ✓   ×    ×   ×   ×   ×   ✓   ✓   LTS ×   ×   ×
+3.7.x        ×    ×    ✓   ✓   ✓   ✓   ✓    ×   ×   ×   ×   ×   ✓   LTS ✓   ✓   LTS
+3.6.x        ×    ×    ×   ✓   ✓   ✓   ✓    ×   ×   ×   ×   ×   ×   ✓   ✓   ✓   ✓
+3.5.x        ×    ×    ×   ✓   ✓   ✓   ✓    ×   ×   ×   ×   ×   ×   ×   ×   ×   ✓
+3.4.5        ×    ×    ×   ×   ✓   ✓   ✓    ×   ×   ×   ×   ×   ×   ×   ×   ×   LTS
+===========  ==== ==== === === === === ===  === === === === === === === === === ====
 
 
 .. _Python: https://www.python.org
