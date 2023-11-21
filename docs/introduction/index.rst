@@ -37,7 +37,7 @@ in the order presented here.
     09-third_party
 
 If you want to install django CMS into an existing project, or prefer to configure django CMS by
-hand, rather than using the automated installer, see :doc:`/how_to/01-install` and then follow the
+hand, rather than using the django CMS quistart project, see :doc:`/how_to/01-install` and then follow the
 rest of the tutorials.
 
 Either way, you'll be able to find support and help from the numerous friendly members of the

@@ -151,7 +151,7 @@ django CMS also has other requirements, which it lists as dependencies in its ``
 
 Then::
 
-    pip install django-cms==4.1rc1
+    pip install django-cms\>=4.1
 
 to install the release candidate version of django CMS. It will also install its dependencies including Django.
 
@@ -318,6 +318,7 @@ in the ``TEMPLATES['OPTIONS']['context_processors']``:
             "OPTIONS": {
                 "context_processors": [
                     ...
+                    "django.template.context_processors.i18n",
                     "sekizai.context_processors.sekizai",
                 ],
             },
