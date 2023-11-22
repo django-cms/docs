@@ -39,8 +39,8 @@ carry a version number and version state. The states are:
     a new draft is created based on a published page and the published page stays unchanged.
   * **unpublished**: This is a version which was published at one time but now is not
     visible to the public any more. There can be many unpublished versions.
-  * **archived**: This is a version which has not been published and also is visible to
-    the public any more. It might represent a state of the page which can be used in
+  * **archived**: This is a version which has not been published and therefore has never been 
+    visible to the public. It represents a state which is intended to be used for
     later work (by reverting it to a draft state).
 
 Each new draft version will generate a new version number.
