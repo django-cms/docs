@@ -261,7 +261,7 @@ django CMS   Python                                  Django
 See the repository's ``setup.py`` for more specific details of dependencies, or the :ref:`release-notes` for
 information about what is required or has changed in particular versions of the CMS.
 
-The :ref:`installation how-to guide <installation>` provides an overview of other packages required in a django CMS
+The :ref:`Commonly Used Plugin section <commonly-used-plugins>` provides an overview of other packages required in a django CMS
 project.
 
 

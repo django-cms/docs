@@ -21,9 +21,9 @@ Before we begin the django CMS tutorial, you will need to know that there are se
 
 2. As another option, you can set up the project `using docker <https://www.django-cms.org/en/blog/2021/01/19/how-you-spin-up-a-django-cms-project-in-less-than-5-minutes/>`_. It is a good way for a developer locally without an external vendor and we use this option in this django CMS demo.
 
-3. The last option is to install :ref:`django CMS manually by using virtualenv <install-django-cms-by-hand>`. This option is a good way for developers that want to install everything by hand to understand better, have full control, or want to add to an existing Django project.
+3. The last option is to install is creating a django CMS project manually into a local virutal environment by running the ``djangocms`` command. This will create a new Django project set up for running django CMS based on a django CMS-specific project template. See :ref:`Installing django CMS by hand <install-django-cms-by-hand>` for details. This option is a good way for developers that want to install everything by hand to understand better, have full control, or want to add to an existing Django project.
 
-In this tutorial we will cover both number 2 and 3.
+In this tutorial we will cover both number 2 and 3, including the explanation what exactly needs to happen when you add django CMS to a Django project.
 
 .. _install-with-quickstarter:
 
@@ -133,21 +133,13 @@ django CMS also has other requirements, which it lists as dependencies in its ``
 
 ..  important::
 
-    We strongly recommend doing all of the following steps in a virtual environment. You ought to know how to create,
-    activate and dispose of virtual environments using `virtualenv <https://virtualenv.pypa.io>`_. If you don't, you
-    can use the steps below to get started, but you are advised to take a few minutes to learn the basics of using
-    virtualenv before proceeding further.
+    We strongly recommend doing all of the following steps in a `virtual environment <https://docs.python.org/3/library/venv.html>`_. You ought to know how to create, activate and dispose of virtual environments. If you don't, you can use the steps below to get started, but you are advised to take a few minutes to learn the basics of using virtual environments before proceeding further.
 
     ..  code-block:: bash
 
-        virtualenv django-cms-site  # create a virtualenv
-        source django-cms-site/bin/activate  # activate it
-
-    In an activated virtualenv, run::
-
-      pip install --upgrade pip
-
-    to make sure ``pip`` is up-to-date, as earlier versions can be less reliable.
+        python3 -m .venv  # create a virtualenv
+        source .venv/bin/activate  # activate it
+        pip install --upgrade pip  # Upgrade pip
 
 Then::
 
@@ -156,27 +148,82 @@ Then::
 to install the release candidate version of django CMS. It will also install its dependencies including Django.
 
 
-Create a new Django project (Step 2)
-************************************
+Create a new django CMS project (Step 2)
+****************************************
 
-Create a new Django project::
+Create a new django CMS project::
 
-    django-admin startproject myproject
+    djangocms myproject
 
-If this is new to you, you ought to read the `official Django tutorial
-<https://docs.djangoproject.com/en/dev/intro/tutorial01/>`_, which covers starting a new project.
+This is a shortcut command for creating a new Django project with the right project template. It performs the following five steps in one simple go:
+
+1. It creates a new Django project::
+
+      django-admin startproject myproject --template https://github.com/django-cms/cms-template/archive/4.1.tar.gz
+
+   If ``django-admin startproject`` is new to you, you ought to read the `official Django tutorial <https://docs.djangoproject.com/en/dev/intro/tutorial01/>`_, which covers starting a new project.
+
+2. It installs additional optional packages which are used in the template project. Those are
+
+   * `djangocms-text-ckeditor <https://github.com/django-cms/djangocms-text-ckeditor>`_ for rich text input.
+   * `djangocms-frontend <https://github.com/django-cms/djangocms-frontend>`_ for `Bootstrap5 <https://getbootstrap.com>`_ support.
+   * `django-filer <https://github.com/django-cms/django-filer>`_ for managing media files like images.
+   * `djangocms-versioning <https://github.com/django-cms/djangocms-versioning>`_ for publishing and version management,
+   * `djangocms-alias <https://github.com/django-cms/djangocms-alias>`_ for managing common content parts such as footers.
+   * `djangocms_admin_style <https://github.com/django-cms/djangocms-admin-style>`_ for a consistent user experience with django CMS and Django admin.
+
+3. It runs the ``migrate`` command to create the database::
+
+      python manage.py migrate.
+
+4. It prompts for crating a superuser by invoking::
+
+      python manage.py createsuperuser
+
+5. It runs the django CMS check command to verify the installation is consistent::
+
+      python manage.py cms check
+
 
 Your new project will look like this::
 
-    myproject
-        myproject
+    myproject/
+        LICENSE
+        README.md
+        db.sqlite3
+        myproject/
+            static/
+            templates/
+                base.html
             __init__.py
             asgi.py
             settings.py
             urls.py
             wsgi.py
         manage.py
+        requirements.in
 
+The ``LICENSE`` and ``README.md`` files are not needed and can be deleted or replaced by appropriate files for your project.
+
+``requirements.in`` contain dependencies for the project. Add your dependencies here. We suggest to use pip-compile to freeze your requirements as, for example, discussed in `this blog post <https://blog.typodrive.com/2020/02/04/always-freeze-requirements-with-pip-compile-to-avoid-unpleasant-surprises/>`_.
+
+
+Spin up your Django development server (Step 3)
+***********************************************
+
+Now you are ready to spin up Django's development server by running::
+
+    python manage.py runserver
+
+You can visit your project's web site by pointing your browser to ``localhost:8000``.
+
+Use the newly created superuser's credentials to authenticate and create your first page!
+
+***********************************************
+Adding django CMS to an existing Django project
+***********************************************
+
+django CMS is nothing more than a powerful set of Django apps. Hence you can add django CMS to any Django project. It will require some settings to be modified, however.
 
 Minimally-required applications and settings
 ============================================
@@ -272,29 +319,6 @@ Now run migrations to create database tables for the new applications::
     python manage.py migrate
 
 
-Admin user
-==========
-
-Create an admin superuser::
-
-    python manage.py createsuperuser
-
-
-Using ``cms check`` for configuration (Step 3)
-**********************************************
-
-Once you have completed the minimum required set-up described above, you can use django CMS's built-in ``cms check`` command to help you identify and install other components. Run::
-
-    python manage.py cms check
-
-This will check your configuration, your applications and your database, and report on any problems.
-
-..  note::
-
-    If key components are be missing, django CMS will be unable to run the ``cms check command`` and will simply raise an error instead.
-
-After each of the steps below run ``cms check`` to verify that you have resolved that item in its checklist.
-
 
 Sekizai
 =======
@@ -358,25 +382,26 @@ Also add ``'django.template.context_processors.i18n'`` if it's not already prese
 ``cms check`` should now be unable to identify any further issues with your project. Some additional configuration is required however.
 
 
-Further required configuration (Step 5)
-***************************************
+Further required configuration
+******************************
 
 URLs
 ====
 
-In the project's ``urls.py``, add ``url(r'^', include('cms.urls'))`` to the ``urlpatterns`` list. It should come after other patterns, so that specific URLs for other applications can be detected first.
+In the project's ``urls.py``, add ``path("", include("cms.urls"))`` to the ``urlpatterns`` list, preferably as ``i18patterns``. It should come after other patterns, so that specific URLs for other applications can be detected first.
 
 You'll also need to have an import for ``django.urls.include``. For example:
 
 ..  code-block:: python
     :emphasize-lines: 1,5
 
-    from django.urls import re_path, include
+    from django.conf.urls.i18n import i18n_patterns
+    from django.urls import include, path
 
-    urlpatterns = [
-        re_path(r'^admin/', admin.site.urls),
-        re_path(r'^', include('cms.urls')),
-    ]
+    urlpatterns = i18patterns(
+        path('admin/', admin.site.urls),
+        path('', include('cms.urls')),
+    )
 
 The django CMS project will now run, as you'll see if you launch it with ``python manage.py runserver``. You'll be able to reach it at http://localhost:8000/, and the admin at http://localhost:8000/admin/. You won't yet actually be able to do anything very useful with it though.
 
@@ -487,9 +512,24 @@ For deployment, you need to configure suitable media file serving. **For develop
 
 (See the Django documentation for guidance on :doc:`serving media files in production <django:howto/static-files/index>`.)
 
+Using ``cms check`` for configuration
+*************************************
 
-Adding content-handling functionality (Step 5)
-**********************************************
+Once you have completed the minimum required set-up described above, you can use django CMS's built-in ``cms check`` command to help you identify and install other components. Run::
+
+    python manage.py cms check
+
+This will check your configuration, your applications and your database, and report on any problems.
+
+..  note::
+
+    If key components are be missing, django CMS will be unable to run the ``cms check command`` and will simply raise an error instead.
+
+After each of the steps below run ``cms check`` to verify that you have resolved that item in its checklist.
+
+
+Adding content-handling functionality
+*************************************
 
 You now have the basics set up for a django CMS site, which is able to manage and serve up pages. However the project so far has no plugins installed, which means it has no way of handling content in those pages. All content in django CMS is managed via plugins. So, we now need to install some additional addon applications to provide plugins and other functionality.
 
@@ -504,7 +544,7 @@ Django Filer
 
 To install::
 
-    pip install django-filer
+    pip install django-filer\>=3.0
 
 A number of applications will be installed as dependencies. `Easy Thumbnails
 <https://github.com/SmileyChris/easy-thumbnails>`_ is required to create new versions of images in different sizes;
@@ -518,7 +558,6 @@ Add::
 
     'filer',
     'easy_thumbnails',
-    'mptt',
 
 to ``INSTALLED_APPS``.
 
@@ -620,19 +659,10 @@ Then run migrations::
 
 These and other plugins are described in more detail in :ref:`commonly-used-plugins`.
 
-Launch the project (Step 6)
-***************************
-
-Start up the runserver::
-
-    python manage.py runserver
-
-and access the new site, which you should now be able to reach at ``http://localhost:8000``. Login if you haven't
-done so already.
 
 |it-works-cms|
 
-.. |it-works-cms| image:: ../images/it-works-cms.png
+.. |it-works-cms| image:: images/it-works-cms.jpg
 
 
 **********
