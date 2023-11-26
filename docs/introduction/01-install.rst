@@ -143,7 +143,7 @@ django CMS also has other requirements, which it lists as dependencies in its ``
 
 Then::
 
-    pip install django-cms\>=4.1
+    pip install django-cms\>=4.1.0rc5
 
 to install the release candidate version of django CMS. It will also install its dependencies including Django.
 
@@ -415,7 +415,7 @@ Compared to previous versions of django CMS, the core django CMS since version 4
 
 (We expect to release versions of both in pypi to allow a simpler installation using pip by the time django CMS v4.1 is released.)
 
-Also add them to ``INTALLED_APPS``::
+Also add them to ``INSTALLED_APPS``::
 
     "djangocms_versioning",
     "djangocms_alias",
