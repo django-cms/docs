@@ -378,3 +378,9 @@ The simplified Toolbar API works by deriving your toolbar class from ``Extension
 
 * ``ExtensionToolbar.get_page_extension_admin()``: for page extensions, retrieves the correct admin URL for the related toolbar item; returns the extension instance (or ``None`` if none exists) and the admin URL for the toolbar item
 * ``ExtensionToolbar.get_page_content_extension_admin(page_content=None)``: for page content extensions, retrieves the correct admin URL for the related toolbar item; returns a tuple of the extension instance (or ``None`` if none exists) and the admin URL for the current page content (if the argument is None or omitted) or the page content object passed.
+
+  Typically, ``ExtensionToolbar.get_page_content_extension_admin`` is used without the argument to modify the toolbar for the currently visible page content object.
+
+.. warning::
+
+  The ``ExtensionToolbar.get_title_extension_admin(language=None)`` from django CMS versions before 4.1 still exists but is deprecated.
