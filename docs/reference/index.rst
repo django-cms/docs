@@ -17,6 +17,7 @@ Technical reference material.
     navigation
     pages
     pagecontents
+    extensions
     permissions
     placeholders
     plugins

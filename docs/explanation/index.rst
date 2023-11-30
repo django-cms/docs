@@ -21,5 +21,4 @@ concerned with explaining *how to do things* than with helping you understand
     colorscheme
     menu_system
     commonly_used_plugins
-    searchdocs
     frontend-integration
