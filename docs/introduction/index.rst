@@ -39,6 +39,4 @@ If you want to install django CMS into an existing project, or prefer to configu
 hand, rather than using the django CMS quistart project, see :doc:`/introduction/01-install` and then follow the
 rest of the tutorials.
 
-Either way, you'll be able to find support and help from the numerous friendly members of the
-django CMS community, either on our `Discourse forum <https://discourse.django-cms.org>`_ or `our
-Slack group <https://www.django-cms.org/slack>`_.
+Either way, you'll be able to find support and help from the numerous friendly members of the django CMS community on `our Slack group <https://www.django-cms.org/slack>`_.
