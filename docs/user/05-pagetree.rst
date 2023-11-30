@@ -72,12 +72,10 @@ From left to right, you will find the following items:
     * Advanced settings
     * Miscellaneous information: the date of the last change, the access (restricted or not), the author of the last modifications.
 
-At the top right is a small menu, composed of a search button allowing you to find a specific page in your tree, a "..." button to choose the site whose tree you want to see (normally there is only yours), and a button to add a new page.
+At the top right is a small menu, composed of a search button allowing you to find a specific page in your tree, a "..." button to choose the site whose tree you want to see (in many installations you will only see one site), and a button to add a new page.
 
 At the bottom right there is the legend with a complete list of all symbols used in the page tree view. Open it by clicking on the information icon:
 
 .. image:: images/05-pagetree-legend.jpg
   :scale: 50
   :alt: Legend for the page tree
-
-
