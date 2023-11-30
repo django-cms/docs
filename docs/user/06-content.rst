@@ -1,8 +1,8 @@
 .. _content:
 
-##############
-Create content
-##############
+###########################
+Creating places for content
+###########################
 
 Content needs a place to live. Typically those are  pages, but you also may have other content models, like aliases (chunks of content that are re-used elsewhere) or blog posts.
 

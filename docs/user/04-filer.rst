@@ -29,4 +29,4 @@ The blue folder "Blog" might contain all your picture folders used in your blog.
 
 .. warning::
 
-  This chapter is incomplete.
+  Would you like to see more content here? Please `join us on Slack <https://www.django-cms.org/slack>`_ and the Slack ``#workgroup-documentation`` to add content here.
