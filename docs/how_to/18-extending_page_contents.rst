@@ -12,9 +12,9 @@ icon for every page) by using the extension models: ``cms.extensions.PageExtensi
 
     In django CMS the ``PageContent`` model used to be called ``Title``. Since django CMS 4.1 a ``TitleExtension`` has become ``PageContentExtension``
 
-*****************************
-PageContnt vs Page extensions
-*****************************
+******************************
+PageContent vs Page extensions
+******************************
 
 The difference between a **page extension** and a **page content extension** is related to the difference between the :class:`cms.models.pagemodel.Page` and :class:`cms.models.contentmodels.PageContent` models.
 
@@ -182,7 +182,7 @@ The admin
 The toolbar item
 ----------------
 
-In this example, we need to loop over the titles for the page, and populate the menu with those.
+In this example, we need to loop over the page contents for the page, and populate the menu with those.
 
 ::
 
@@ -207,19 +207,16 @@ In this example, we need to loop over the titles for the page, and populate the 
                     current_page_menu, 'submenu_label', 'Ratings', position=1
                     )
 
-                # retrieves the instances of the current title extension (if any)
-                # and the toolbar item URL
-                urls = self.get_title_extension_admin()
-
-                # we now also need to get the titleset (i.e. different language titles)
+                # we now need to get the pagecontent_set (i.e. different language page contents)
                 # for this page
                 page = self._get_page()
-                titleset = page.title_set.filter(language__in=get_language_list(page.node.site_id))
+                page_contents = page.pagecontent_set(manager="admin_manager").latest_content(language__in=get_language_list(page.node.site_id))
 
                 # create a 3-tuple of (title_extension, url, title)
-                nodes = [(title_extension, url, title.title) for (
-                    (title_extension, url), title) in zip(urls, titleset)
-                    ]
+                nodes = [
+                    (*self.get_page_content_extension_admin(page_content), page_content.title)
+                    for page_content in page_contents
+                ]
 
                 # cycle through the list of nodes
                 for title_extension, url, title in nodes:
@@ -272,7 +269,7 @@ above.
 PageContent extensions
 ----------------------
 
-In order to retrieve a title extension within a template, get the ``PageContent`` object using ``request.current_page.get_pagecontent_obj``. Using the example above, we could use::
+In order to retrieve a page content extension within a template, get the ``PageContent`` object using ``request.current_page.get_pagecontent_obj``. Using the example above, we could use::
 
     {{ request.current_page.get_pagecontent_obj.ratingextension.rating }}
 
@@ -293,10 +290,7 @@ In the menu template the icon extension we created above would therefore be avai
 Handling relations
 ==================
 
-If your ``PageExtension`` or ``PageContentExtension`` includes a ForeignKey *from* another model or includes a ManyToManyField, you should also override the method
-``copy_relations(self, oldinstance, language)`` so that these fields are
-copied appropriately when the CMS makes a copy of your extension to support
-versioning, etc.
+If your ``PageExtension`` or ``PageContentExtension`` includes a ForeignKey *from* another model or includes a ManyToManyField, you should also override the method ``copy_relations(self, oldinstance, language)`` so that these fields are copied appropriately when the CMS makes a copy of your extension to support versioning, etc.
 
 
 Here's an example that uses a ``ManyToManyField`` ::
@@ -370,12 +364,9 @@ low-level API to edit the toolbar according to your needs::
                     current_page_menu.add_modal_item(_('Page Icon'), url=url, disabled=not_edit_mode)
 
 
-Now when the operator invokes "Edit this page..." from the toolbar, there will
-be an additional menu item ``Page Icon ...`` (in this case), which can be used
-to open a modal dialog where the operator can affect the new ``icon`` field.
+Now when the operator invokes "Edit this page..." from the toolbar, there will be an additional menu item ``Page Icon ...`` (in this case), which can be used to open a modal dialog where the operator can affect the new ``icon`` field.
 
-Note that when the extension is saved, the corresponding page is marked as
-having unpublished changes. To see the new extension values publish the page.
+Note that when the extension is saved, the corresponding page is marked as having unpublished changes. To see the new extension values publish the page.
 
 
 .. _simplified_extension_toolbar:
@@ -386,4 +377,10 @@ Simplified Toolbar API
 The simplified Toolbar API works by deriving your toolbar class from ``ExtensionToolbar`` which provides the following API:
 
 * ``ExtensionToolbar.get_page_extension_admin()``: for page extensions, retrieves the correct admin URL for the related toolbar item; returns the extension instance (or ``None`` if none exists) and the admin URL for the toolbar item
-* ``ExtensionToolbar.get_title_extension_admin()``: for title extensions, retrieves the correct admin URL for the related toolbar item; returns a list of the extension instances (or ``None`` if none exists) and the admin URLs for each title of the current page
+* ``ExtensionToolbar.get_page_content_extension_admin(page_content=None)``: for page content extensions, retrieves the correct admin URL for the related toolbar item; returns a tuple of the extension instance (or ``None`` if none exists) and the admin URL for the current page content (if the argument is None or omitted) or the page content object passed.
+
+  Typically, ``ExtensionToolbar.get_page_content_extension_admin`` is used without the argument to modify the toolbar for the currently visible page content object.
+
+.. warning::
+
+  The ``ExtensionToolbar.get_title_extension_admin(language=None)`` from django CMS versions before 4.1 still exists but is deprecated.
