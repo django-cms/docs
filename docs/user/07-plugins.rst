@@ -50,7 +50,6 @@ Fill in the fields (in the container example below you do not have to fill any f
 
   Those plugins do have a set of tabs (colored in blue) at the top of the dialog and offer a wide set of design options, most of which are optional.
 
-
 Repeat the operation as many times as you want and for as much content as you want.
 
 If you want to move content to arrange their layout, for example to move an image before or after text, use the "drag & drop" function of the CMS via the notch on the left of the content type.
@@ -98,6 +97,12 @@ django CMS includes a rich text editor. Its interface is particularly simple, si
 
   .. image:: images/07-inline-editing.jpg
     :alt: django CMS text inline editing
+
+.. tip::
+
+  All plugins show a few words of summary in the plugin tree. Those plugin trees can get huge, though. To keep an overview, use a feature of the Container plugin:
+
+  The title field is a text field to briefly describe the container content. It will be displayed in the plugin tree. It is a good practice to use separate containers for different sections of your page and fill the title for quick navigation in the plugin tree.
 
 Some plugins can even be added directly to a text plugin using the "CMS Plugins" menu within the text editor. This is useful for adding dynamic links to your text. Dynamic links are links to other pages of your site which - should the destination change its URL - will be automatically kept up-to-date.
 
