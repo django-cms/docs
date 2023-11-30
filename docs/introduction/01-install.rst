@@ -174,15 +174,15 @@ This is a shortcut command for creating a new Django project with the right proj
 
 3. It runs the ``migrate`` command to create the database::
 
-      python manage.py migrate.
+      python -m manage migrate.
 
 4. It prompts for crating a superuser by invoking::
 
-      python manage.py createsuperuser
+      python -m manage createsuperuser
 
 5. It runs the django CMS check command to verify the installation is consistent::
 
-      python manage.py cms check
+      python -m manage cms check
 
 
 Your new project will look like this::
@@ -213,7 +213,7 @@ Spin up your Django development server (Step 3)
 
 Now you are ready to spin up Django's development server by running::
 
-    python manage.py runserver
+    python -m manage runserver
 
 You can visit your project's web site by pointing your browser to ``localhost:8000``.
 
