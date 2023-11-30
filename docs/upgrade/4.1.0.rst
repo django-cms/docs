@@ -67,6 +67,10 @@ TitleExtension
 Any packages using ``TitleExtension`` will need to adapt the name change in
 their code base.
 
+In ``ExtensionToolbar`` the method ``get_title_extension_admin(language=None)``
+has been deprecated. It is recommended to switch to the new
+``get_page_content_extension_admin(page_content=None)``.
+
 Monkey patching
 ---------------
 
