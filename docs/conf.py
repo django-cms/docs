@@ -242,7 +242,7 @@ latex_paper_size = 'a4'
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
     ('index', 'djangocms.tex', u'django cms Documentation',
-     u'Divio AG and contributors', 'manual'),
+     u'django CMS Association and contributors', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top
