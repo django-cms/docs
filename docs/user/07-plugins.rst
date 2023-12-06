@@ -110,9 +110,6 @@ Some plugins can even be added directly to a text plugin using the "CMS Plugins"
   :alt: The CMS Plugins menu in the rich text editor
 
 
-.. note::
-
-
 .. warning::
 
   Would you like to see more content here, e.g. on images, videos, links and buttons? Please `join us on Slack <https://www.django-cms.org/slack>`_ and the Slack ``#workgroup-documentation`` to add content here.
