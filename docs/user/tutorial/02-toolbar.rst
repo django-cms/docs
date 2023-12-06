@@ -8,7 +8,7 @@ Overview
 
 When connected to your site, the Django CMS toolbar appears. It can also be called a menu bar since it offers you several menus performing various actions.
 
-.. image:: images/02-toolbar.jpg
+.. image:: ./images/02-toolbar.jpg
   :alt: The django CMS toolbar
 
 Depending on the modules present on your site and the page you are on, you can find various elements. The only ones that will always be present are "Project", "Page" and "Language". The other proposals that may appear depend on the CMS modules present on your website and where you are located. For example, "Blog" will only be displayed if you have this module and you are on your blog page or article pages.
@@ -24,7 +24,7 @@ The Project menu
 
 This is the part of the django CMS toolbar that corresponds to your site. Normally, the name of your website is displayed instead of "example.com".
 
-.. image:: images/02-project-menu.jpg
+.. image:: ./images/02-project-menu.jpg
   :alt: The Project menu
   :scale: 50
 
@@ -50,7 +50,7 @@ Generally, by choosing one of the items of this menu, the content will be displa
 The "Page" menu
 ===============
 
-.. image:: images/02-page-menu.jpg
+.. image:: ./images/02-page-menu.jpg
   :alt: The Page menu
   :scale: 50
 
@@ -87,15 +87,15 @@ We will see them in more detail when we create your page, but here are some impo
 
 You will probably not use the advanced settings because they are mainly used for redirects.
 
-.. image:: images/02-page-settings.jpg
+.. image:: ./images/02-page-settings.jpg
   :alt: The page settings dialogue
 
 Note that the page settings are available seperately for all languages of the page. Use the language tabs to navigate between settings in different languages.
 
-The verison menu
+The version menu
 ================
 
-.. image:: images/02-version-menu.jpg
+.. image:: ./images/02-version-menu.jpg
   :alt: The version menu
   :scale: 50
 
@@ -115,7 +115,7 @@ You can perform the following actions:
 The language menu
 =================
 
-.. image:: images/02-language-menu.jpg
+.. image:: ./images/02-language-menu.jpg
   :alt: The language menu
   :scale: 50
 

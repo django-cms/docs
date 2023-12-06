@@ -42,7 +42,7 @@ The page tree is a list of all the pages of your site. It gives you an overview 
 
 By default, the following information is displayed:
 
-.. image:: images/05-pagetree-form.jpg
+.. image:: ./images/05-pagetree-form.jpg
   :alt: The django CMS page tree form
 
 From left to right, you will find the following items:
@@ -76,6 +76,6 @@ At the top right is a small menu, composed of a search button allowing you to fi
 
 At the bottom right there is the legend with a complete list of all symbols used in the page tree view. Open it by clicking on the information icon:
 
-.. image:: images/05-pagetree-legend.jpg
+.. image:: ./images/05-pagetree-legend.jpg
   :scale: 50
   :alt: Legend for the page tree

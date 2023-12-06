@@ -25,11 +25,7 @@ The origin of this document is a guide provided by `Kapt.mobi <https://support.k
 .. toctree::
     :maxdepth: 1
 
-    01-login
-    02-toolbar
-    03-sidebar
-    04-filer
-    05-pagetree
-    06-content
-    07-plugins
-    08-publishing
+    tutorial/index
+    explanation/index
+    how-to/index
+    reference/index

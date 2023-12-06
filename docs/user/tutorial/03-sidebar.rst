@@ -10,6 +10,6 @@ When you click on "Administration" in the project menu, the administration or ad
 
 From this page, you can access the different administration sections of your site: management of pages, media files, users, ...
 
-.. image:: images/03-sidebar.jpg
+.. image:: ./images/03-sidebar.jpg
   :alt: Example sidebar
   :width: 800
