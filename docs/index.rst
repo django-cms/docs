@@ -55,9 +55,9 @@ django CMS documentation
 Philosophy
 **********
 
-The design philosophy of django-cms is to solve something complex with many simple things.
+The design philosophy of django CMS is to solve something complex with many simple things.
 
-The core of django-cms is designed to be simple and integrate with simple packages to create
+The core of django CMS is designed to be simple and integrate with simple packages to create
 complex applications. For example, you may add ``djangocms-versioning`` to manage versions
 of your content, ``djangocms-moderation`` to define workflows for how content moves from
 authoring to being published.
@@ -157,12 +157,12 @@ small. Here are a few of the key features:
 * robust internationalisation (i18n) support for creating multilingual sites
 * front-end editing, providing rapid access to the content management interface
 * support for a variety of editors with advanced text editing features.
-* a flexible plugins system that lets developers put powerful tools at the
+* a flexible plugin system that lets developers put powerful tools at the
   fingertips of editors, without overwhelming them with a difficult interface
 
 * ...and much more
 
-There are other capable Django-based CMS platforms but here's why you should
+There are other capable Django-based CMS platforms, but here's why you should
 consider django CMS:
 
 * thorough documentation
@@ -185,7 +185,7 @@ Long-term support (LTS)
 Django has a `long-term support (LTS) <https://www.djangoproject.com/download/#supported-versions>`_
 policy which django CMS adapts.
 
-Deisgnated django CMS versions receive support for use with official Django LTS
+Designated django CMS versions receive support for use with official Django LTS
 versions:
 
 Current LTS table
@@ -200,7 +200,7 @@ django CMS  Feature freeze  Django  End of long-term support
 \           \               3.2     April 2024
 ==========  ==============  ======  ========================
 
-After feature freeze new features go into the next major version
+After feature freeze, new features go into the next major version
 of django CMS.
 
 Unsupported LTS versions
@@ -246,7 +246,7 @@ django CMS   Python                                  Django
 .. _Django: https://www.djangoproject.com
 
 
-See the repository's ``setup.py`` for more specific details of dependencies, or the :ref:`release-notes` for
+See the repository's ``setup.cfg`` for details of dependencies, or the :ref:`release-notes` for
 information about what is required or has changed in particular versions of the CMS.
 
 The :ref:`Commonly Used Plugin section <commonly-used-plugins>` provides an overview of other packages required in a django CMS

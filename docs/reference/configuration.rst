@@ -29,15 +29,11 @@ The ``MIDDLEWARE`` setting
 ``cms.middleware.utils.ApphookReloadMiddleware``
 ================================================
 
-Adding ``ApphookReloadMiddleware`` to the ``MIDDLEWARE`` tuple will enable automatic server
-restarts when changes are made to apphook configurations. It should be placed as near to the top of
-the classes as possible.
+Adding ``ApphookReloadMiddleware`` to the ``MIDDLEWARE`` tuple will enable automatic server restarts when changes are made to apphook configurations. It should be placed as near to the top of the classes as possible.
 
 .. note::
 
-   This has been tested and works in many production environments and deployment configurations,
-   but we haven't been able to test it with all possible set-ups. Please file an issue if you
-   discover one where it fails.
+   This has been tested and works in many production environments and deployment configurations, but we haven't been able to test it with all possible set-ups. Please file an issue if you discover one where it fails.
 
 
 ************************

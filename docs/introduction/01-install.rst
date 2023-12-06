@@ -17,22 +17,24 @@ First of all, you don’t need to be a senior developer or have prior experience
 
 Before we begin the django CMS tutorial, you will need to know that there are several ways to install django CMS for free.
 
-1. You can either set up a project on `Divio Cloud <https://www.django-cms.org/en/blog/2020/07/08/simple-django-cms-installation-with-divio-cloud/>`_, which is fast and useful for people without a technical background and a good starting point to experience the CMS User Interface.
+1. You can either set up a project on `Divio Cloud <https://www.divio.com>`_, which is fast and useful for people without a technical background and a good starting point to experience the CMS User Interface.
 
 2. As another option, you can set up the project `using docker <https://www.django-cms.org/en/blog/2021/01/19/how-you-spin-up-a-django-cms-project-in-less-than-5-minutes/>`_. It is a good way for a developer locally without an external vendor and we use this option in this django CMS demo.
 
 3. The last option is to install is creating a django CMS project manually into a local virutal environment by running the ``djangocms`` command. This will create a new Django project set up for running django CMS based on a django CMS-specific project template. See :ref:`Installing django CMS by hand <install-django-cms-by-hand>` for details. This option is a good way for developers that want to install everything by hand to understand better, have full control, or want to add to an existing Django project.
 
-In this tutorial we will cover both number 2 and 3, including the explanation what exactly needs to happen when you add django CMS to a Django project.
+In this tutorial we will cover both options 2 and 3, including the explanation what exactly needs to happen when you add django CMS to a Django project.
+
 
 .. _install-with-quickstarter:
 
-*****************************
-Using django CMS quickstarter
-*****************************
+***************************************
+Production-ready: django CMS quickstart
+***************************************
 
+The django CMS quickstart project is a template for a Docker-based production-ready setup. Especially if you know your way around Docker, you will be able to quickly set up a project that is ready for deployment.
 
-For the sake of this demonstration we will use Option 2, please read on.
+If you just want to test a project locally without Docker, you can :ref:`install django CMS by hand in a few steps <install-django-cms-by-hand>`.
 
 Setup Docker (Step 1)
 *********************
@@ -111,13 +113,11 @@ Installing django CMS by hand
 
 If you are looking for a typical installation using Docker look at the :ref:`quickstarter section of this documentation <install-with-quickstarter>`.
 
-If you prefer to do things manually, this how-to guide will take you through the process.
+If you prefer to do things manually, this how-to guide will take you through the process. It is simple, quick, and transparent. If you know Django, you will recognize how django CMS is set up like a typical Django project.
 
 ..  note::
 
-    You can also use this guide to help you install django CMS as part of an existing project. However, the guide
-    assumes that you are starting with a blank project, so you will need to adapt the steps below appropriately as
-    required.
+    You can also use this guide to help you install django CMS as part of an existing project. However, the guide assumes that you are starting with a blank project, so you will need to adapt the steps below appropriately as required. You
 
 This document assumes you have some basic familiarity with Python and Django. After you've integrated django CMS into
 your project, you should be able to follow the :doc:`/introduction/index` for an introduction to developing with django
