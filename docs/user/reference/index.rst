@@ -11,4 +11,8 @@ Reference for content editors
           from you - join us on `our friendly Slack group
           <https://www.django-cms.org/slack>`_.
 
+.. toctree::
+    :maxdepth: 1
+
+    plugins
 
