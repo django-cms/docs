@@ -11,7 +11,7 @@ The default way is to add ``/?toolbar_on`` to the end of your URL and use the to
 
 Logging in will allow you to access your site to add, modify or delete content. You will be able to perform a lot of actions using the django CMS menu bar, which is present when you are logged in to your site.
 
-.. image:: images/01-toolbar-on.jpg
+.. image:: ./images/01-toolbar-on.jpg
   :alt: django CMS toolbar login
 
 Upon logging into your site, you will be able to see your site's pages and other content with a toolbar at the top of the visible area. This toolbar is used to make changes to your site.

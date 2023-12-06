@@ -11,7 +11,7 @@ Accordingly, all changes you make are visible immediately.
 `djangocms-versioning <https://github.com/django-cms/djangocms-versioning>`_ is a general
 purpose package that manages versions within different categories, like **published**,
 **draft**, **unpublished**, or **archived**. django CMS, however, is not restricted to
-work with djangocms-verisoning. You can use other versioning packages or come up with
+work with djangocms-versioning. You can use other versioning packages or come up with
 your own either from scratch or by forking djangocms-versioning.
 
 This section gives a short introduction on how to work with djangocms-versioning. For details
@@ -39,7 +39,7 @@ carry a version number and version state. The states are:
     a new draft is created based on a published page and the published page stays unchanged.
   * **unpublished**: This is a version which was published at one time but now is not
     visible to the public any more. There can be many unpublished versions.
-  * **archived**: This is a version which has not been published and therefore has never been 
+  * **archived**: This is a version which has not been published and therefore has never been
     visible to the public. It represents a state which is intended to be used for
     later work (by reverting it to a draft state).
 

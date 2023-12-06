@@ -8,7 +8,7 @@ Once you have finished filling in your newly created page (or blog post), it is 
 
 To publish a page, click on the highlighted "Publish" button in the toolbar. This button is visible in the page's edit mode. (If there is a highlighted "Edit" button instead, click it first to get to edit mode.)
 
-.. image:: images/08-publish-button.jpg
+.. image:: ./images/08-publish-button.jpg
   :scale: 50
   :alt: The version menu showing "published" state.
 
@@ -16,7 +16,7 @@ When published you will be taken to the published page or the "manage versions" 
 
 You will see in the toolbar that the version menu now shows that the content is "published".
 
-.. image:: images/08-version-menu.jpg
+.. image:: ./images/08-version-menu.jpg
   :scale: 50
   :alt: The version menu showing "published" state.
 
@@ -47,13 +47,13 @@ Managing versions
 
 To manage versions of the currently displayed page, go to the Version menu and select "Manage Versions...":
 
-.. image:: images/08-version-menu-open.jpg
+.. image:: ./images/08-version-menu-open.jpg
   :alt: open version menu
   :scale: 50
 
 This opens the sidebar with the manage versions dialog:
 
-.. image:: images/08-manage-versions.jpg
+.. image:: ./images/08-manage-versions.jpg
   :alt: Manage versions dialog
 
 You will see (a potentially long) list of all versions created, ever. On the right side of the list you see the action buttons. You can
@@ -76,7 +76,7 @@ With many versions being available, it sometimes is difficult to keep track of c
 
 An example of a visual comparison is shown here:
 
-.. image:: images/08-comparing-versions.jpg
+.. image:: ./images/08-comparing-versions.jpg
   :alt: Visual comparison of versions
 
 Added content is marked green, deleted content is marked red.

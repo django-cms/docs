@@ -1,12 +1,12 @@
 .. _commonly-used-plugins:
 
 ##########################
-Some commonly-used plugins
+Some commonly used plugins
 ##########################
 
 Please note that dozens if not hundreds of different django CMS plugins have been made available
 under open-source licences. Some, like the ones on this page, are likely to be of general interest,
-while others are highly specialised.
+while others are highly specialized.
 
 This page only lists those that fall under the responsibility of the django CMS project. Please see
 the `Django Packages <https://djangopackages.org/search/?q=django+cms>`_ site for some more, or
@@ -23,7 +23,7 @@ You don't need to use them, and for many of them alternatives exist, but they re
 to get started with a reliable project set-up. We recommend them for new users of django CMS in
 particular.
 
-At this point in time not all are compatible with versions 4 of django CMS or above. Please see those
+At this point in time, not all are compatible with versions 4 of django CMS or above. Please see those
 two lists:
 
 Recommended with Version 4 of django CMS
