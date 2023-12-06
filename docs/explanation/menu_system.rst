@@ -80,7 +80,7 @@ What they operate on is a list of menu nodes, that gets passed around the menu s
 
 The main active parts of the menu system are menu *generators* and *modifiers*.
 
-Some of these parts are supplied with the menus application. Some come from other applications (from the cms application in django CMS, for example, or some other application entirely).
+Some of these parts are supplied with the ``"menus"`` application. Some come from other applications (from the ``"cms"` application in django CMS, for example, or some other application entirely).
 
 All these active parts need to be registered within the menu system.
 
@@ -223,7 +223,7 @@ The default Modifiers, in the order they are called, are:
 
 * :py:class:`menus.modifiers.AuthVisibility`
 
-  Removes nodes that require authorisation to see
+  Removes nodes that require authorization to see
 
 * :py:class:`menus.modifiers.Level`
 

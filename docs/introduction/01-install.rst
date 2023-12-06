@@ -205,7 +205,7 @@ Your new project will look like this::
 
 The ``LICENSE`` and ``README.md`` files are not needed and can be deleted or replaced by appropriate files for your project.
 
-``requirements.in`` contain dependencies for the project. Add your dependencies here. We suggest to use pip-compile to freeze your requirements as, for example, discussed in `this blog post <https://blog.typodrive.com/2020/02/04/always-freeze-requirements-with-pip-compile-to-avoid-unpleasant-surprises/>`_.
+``requirements.in`` contains dependencies for the project. Add your dependencies here. We suggest to use pip-compile to freeze your requirements as, for example, discussed in `this blog post <https://blog.typodrive.com/2020/02/04/always-freeze-requirements-with-pip-compile-to-avoid-unpleasant-surprises/>`_.
 
 
 Spin up your Django development server (Step 3)

@@ -28,15 +28,15 @@ the project's ``settings.py`` ``CMS_TEMPLATES`` tuple:
 ..  code-block:: python
     :emphasize-lines: 6
 
-  CMS_TEMPLATES = [
-      # a minimal template to get started with
-      ('minimal.html', 'Minimal template'),
+    CMS_TEMPLATES = [
+        # a minimal template to get started with
+        ('minimal.html', 'Minimal template'),
 
-      # optional templates that extend base.html, to be used with Bootstrap 5
-      ('bootstrap5.html', 'Bootstrap 5 Demo'),
+        # optional templates that extend base.html, to be used with Bootstrap 5
+        ('bootstrap5.html', 'Bootstrap 5 Demo'),
 
-      ('whitenoise-static-files-demo.html', 'Static File Demo'),
-  ]
+        ('whitenoise-static-files-demo.html', 'Static File Demo'),
+    ]
 
 
 ************
