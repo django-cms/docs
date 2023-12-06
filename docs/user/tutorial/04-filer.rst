@@ -10,7 +10,7 @@ Access the Media library
 ========================
 To manage the files on your site, look for the Filer section and click on "Folders":
 
-.. image:: images/04-filer-section.jpg
+.. image:: ./images/04-filer-section.jpg
   :scale: 50
   :alt: The filer section of the admin sidebar contains the media library
 

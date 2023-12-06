@@ -16,14 +16,14 @@ To create a new page, you have three options:
 1. Go to the **project menu**, select "Pages...". The sidebar will appear. Click on the button "New page" to open the page dialog box.
 
 2. Use the **wizard** by clicking on the "Create" button at the top right of the toolbar. The wizard dialog appears, where you can select "New page" or "New sub page"
-  .. image:: images/06-wizard-1.jpg
+  .. image:: ./images/06-wizard-1.jpg
     :alt: Step 1 of the wizard dialog
 
 3. In the **"Page" menu**, select "Create a page" then "New page..." (or "New sub-page...). The page dialog box appears.
 
 The page dialog is more extensive than the wizard dialog and contains all elements of the page settings.
 
-.. image:: images/06-create-page.jpg
+.. image:: ./images/06-create-page.jpg
   :alt: aAge dialog box
 
 In the page dialog box, give a title and possibly a menu and page title then save. The slug field will be filled automatically based on the page title. Of course, you can manually change it.
@@ -67,7 +67,7 @@ URL options
 
 The URL options appear as a section a bit down in the page settings dialog. You might need to click "show" to make them visible.
 
-.. image:: images/06-url-options.jpg
+.. image:: ./images/06-url-options.jpg
   :alt: URL options in the page settings dialog
 
 * **Overwrite URL**: allows you to modify the URL. By default, the URL of the page is the slug of your current page, placed after the slug of its parent pages. For example, its default URL could be: ``/a-propos/company/our-vision/``. Overwriting the URL would allow you to shorten it to ``/our-vision/``, even though the page still keeps its parents and children organized in the same way (About page, Company daughter page, Our Vision grandchild page). We do not recommend using this function.

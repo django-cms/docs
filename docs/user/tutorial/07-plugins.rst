@@ -13,7 +13,7 @@ Your page will have one or more placeholders to fill with content. They are disp
 
 To add plugins to your page (or alias, or blog), you need go to open the structure board by clicking the button on the far right side of the menu bar.
 
-.. image:: images/07-structure-toggle.jpg
+.. image:: ./images/07-structure-toggle.jpg
   :alt: Toggle button for the structure board
   :scale: 50
 
@@ -25,7 +25,7 @@ There are different types of plugins for adding content, each with a specific pu
 
 Once you have clicked on the structure board button, the structure board will open on the right side of your browser window. It will show one or more placeholders.
 
-.. image:: images/07-structure-board.jpg
+.. image:: ./images/07-structure-board.jpg
   :alt: django CMS structure board
   :scale: 50
 
@@ -34,13 +34,13 @@ Adding plugins
 
 To add content to a page, click on the button . A dialog box will open, showing you the list of content you can add. Make your choice, a new dialog box opens.
 
-.. image:: images/07-add-plugin.jpg
+.. image:: ./images/07-add-plugin.jpg
   :scale: 50
   :alt: Select a plugin to add
 
 Fill in the fields (in the container example below you do not have to fill any fields - all are optional), and save. The new content is displayed on your page.
 
-.. image:: images/07-add-container.jpg
+.. image:: ./images/07-add-container.jpg
   :scale: 50
   :alt: Add container dialog box
 
@@ -59,7 +59,7 @@ You can also add content to change your layout; some of this content is nestable
 
 If this element allows the addition of nestable content, the add plugin button will be available at the same level as the module title. The triangle icon will appear next to the dotted line of the drag and drop button to show or hide the nested content:
 
-.. image:: images/07-nested-plugins.jpg
+.. image:: ./images/07-nested-plugins.jpg
   :scale: 50
   :alt: Nested plugins in a placeholder
 
@@ -88,14 +88,14 @@ Text
 
 django CMS includes a rich text editor. Its interface is particularly simple, since it only consists of the text you want to enter:
 
-.. image:: images/07-ckeditor.jpg
+.. image:: ./images/07-ckeditor.jpg
   :alt: django CMS' integrated rich text editor
 
 .. tip::
 
   If your installation has inline editing enabled, you can even edit text right on the web page if the pencil button in the toolbar is activated:
 
-  .. image:: images/07-inline-editing.jpg
+  .. image:: ./images/07-inline-editing.jpg
     :alt: django CMS text inline editing
 
 .. tip::
@@ -106,7 +106,7 @@ django CMS includes a rich text editor. Its interface is particularly simple, si
 
 Some plugins can even be added directly to a text plugin using the "CMS Plugins" menu within the text editor. This is useful for adding dynamic links to your text. Dynamic links are links to other pages of your site which - should the destination change its URL - will be automatically kept up-to-date.
 
-.. image:: images/07-text-enabled-plugins.jpg
+.. image:: ./images/07-text-enabled-plugins.jpg
   :alt: The CMS Plugins menu in the rich text editor
 
 
