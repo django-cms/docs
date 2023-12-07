@@ -24,7 +24,7 @@ The simplest way to set redirects is:
       :alt: django CMS page settings
    * Find the "URL options" section.
    * Click "Show" to open the "URL options" section
-   * Change the "Redirect" setting by selecting the page which the corrent one should be redirected to
+   * Change the "Redirect" setting by selecting the page which the current one should be redirected to
    * Close the setting by clicking "Save" at the bottom
 
 4. **Publishing the change:**
