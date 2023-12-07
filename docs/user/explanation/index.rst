@@ -18,3 +18,4 @@ Concepts
     publishing
     version-locking
     moderation
+    aliases

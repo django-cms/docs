@@ -8,7 +8,7 @@ The tree structure of your site allows you to access all your pages. Many featur
 See the page tree
 =================
 
-To access the tree structure of your site, go to the project menu (which has the name of your site, or "example.com" on the screenshots here), and choose "Pages...". The side window opens and shows the complete tree structure of your site. That is to say, all the pages that make up your site: visible and non-visible, pages and sub-pages, published or not.
+To access the tree structure of your site, go to the project menu (which has the name of your site, or "example.com" on the screenshots here), and choose "Pages...". The side bar opens and shows the complete tree structure of your site. That is to say, all the pages that make up your site: visible and non-visible, pages and sub-pages, published or not.
 
 Alternatively, you can reach the page tree by clicking "Page contents" in the admin sidebar, which you find in the "Django CMS" section.
 
