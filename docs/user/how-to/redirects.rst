@@ -13,8 +13,8 @@ The simplest way to set redirects is:
 2. **Opening the page settings:**
 
    * Find the page you want to redirect in the page tree.
-    .. image:: ../tutorial/images/05-pagetree-form.jpg
-      :alt: django CMS page tree
+   .. image:: ../tutorial/images/05-pagetree-form.jpg
+     :alt: django CMS page tree
    * If the page is published, select "Create new draft" from the dropdown menu of the page status indicator (number 7).
    * Click on the page settings icon (number 9: three horizontal sliders),
 
