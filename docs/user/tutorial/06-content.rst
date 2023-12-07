@@ -32,6 +32,8 @@ Your newly created page is displayed, as well as the Django CMS menu/toolbar wit
 
 The color, the size of the text... everything is generated automatically according to the page template of your site which in turn should be based on your individual graphics design. To change the design, there are options to modify the page template. If you want to change the design, talk to the developers to review it.
 
+.. _page-settings:
+
 Change page settings
 ####################
 

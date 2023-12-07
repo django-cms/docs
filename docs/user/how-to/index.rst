@@ -14,3 +14,4 @@ How-to-guides
 
     pages
     media-files
+    redirects
