@@ -13,5 +13,6 @@ How-to-guides
     :maxdepth: 1
 
     pages
+    versions
     media-files
     redirects

@@ -4,6 +4,8 @@
 Publishing content
 ##################
 
+.. include:: ../versioning-note.rst
+
 Once you have finished filling in your newly created page (or blog post), it is saved as a draft. It will not be published until you decide to do so. As an editor, you can view drafts, but any site visitors will only see published pages.
 
 To publish a page, click on the highlighted "Publish" button in the toolbar. This button is visible in the page's edit mode. (If there is a highlighted "Edit" button instead, click it first to get to edit mode.)
