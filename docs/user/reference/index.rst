@@ -15,4 +15,3 @@ Reference for content editors
     :maxdepth: 1
 
     plugins
-
