@@ -7,24 +7,30 @@ Managing pages in Django CMS involves creating, organizing, and editing the stru
    Select "Pages..." in the page menu of the toolbar.
 
 2. **Creating a New Page:**
+
    * Click on "Add Page" to create a new page.
    * Enter the page title, select the page type (if applicable), and define the URL and other settings.
 
 3. **Organizing Page Hierarchy:**
+
    * Arrange the page hierarchy by creating parent-child relationships between pages.
    * Use drag-and-drop functionality to organize pages in a tree-like structure.
 
 4. **Managing Page Content:**
+
    * Click on the settings icon of a page to access its settings
    * Click on the eye icon of a page to access its content.
    * Use placeholders to add content. Edit or add plugins (text, images, forms, etc.) into these placeholders.
 
 5. **Editing Page Settings:**
+
    Adjust page settings such as metadata (SEO-related information like meta titles, descriptions, keywords), publication dates, permissions, etc.
 6. **Preview and Publish:**
+
    * Preview the page to see how it will look to visitors.
    * Once satisfied, publish the page to make it live on the website.
 7. **Managing Existing Pages:**
+
    To edit an existing page, navigate to the Pages section, locate the page, and click on its eye icon to access its  content.
 
 Make necessary changes to the content, settings, or structure.

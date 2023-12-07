@@ -17,5 +17,4 @@ Concepts
     plugins
     publishing
     version-locking
-    moderation
     aliases
