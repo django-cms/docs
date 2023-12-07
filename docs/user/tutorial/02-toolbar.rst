@@ -32,8 +32,8 @@ This is the part of the django CMS toolbar that corresponds to your site. Normal
 
   You might not see all of the elements described here, or even more elements. This strongly depends on your django CMS setup.
 
-* **Pages...** - allows you to access the page tree of your site by opening the side window.
-* **Users...** - gives you access to the user management panel in the side window.
+* **Pages...** - allows you to access the page tree of your site by opening the side bar.
+* **Users...** - gives you access to the user management panel in the side bar.
 * **Administration...** - Allows you to manage various features via the administration window.
 * **Aliases...** - Allows you to access content elements which are re-used within your sites, such as footers or announcements.
 * **User settings** - Allows you to change the language of the administrator interface and the menu/toolbar.
