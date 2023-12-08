@@ -73,6 +73,9 @@ django CMS offers out-of-the-box support for the common features you'd expect
 from a CMS, but can also be easily customised and extended by developers to
 create a site that is tailored to their precise needs.
 
+This is the developer documentation. To get an overview on how to use django CMS,
+see the `django CMS User Guide <https://django-cms-user-guide.readthedocs.io/>`_.
+
 
 .. rst-class:: clearfix row
 
@@ -262,4 +265,3 @@ project.
     how_to/index
     reference/index
     upgrade/index
-    user/index
