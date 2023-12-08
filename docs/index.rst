@@ -262,4 +262,3 @@ project.
     how_to/index
     reference/index
     upgrade/index
-    user/index
