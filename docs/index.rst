@@ -265,3 +265,5 @@ project.
     how_to/index
     reference/index
     upgrade/index
+    contributing/index
+    whoisbehind/index
