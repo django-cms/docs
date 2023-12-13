@@ -141,9 +141,6 @@ Once in frontend editing mode, the interface for your application's ``Placeholde
 in much the same way as it does for CMS Pages, with a switch for Structure and Content modes and so
 on.
 
-There is no automatic draft/live functionality for general Django models, so content is updated
-instantly whenever you add/edit them.
-
 .. _placeholder_object_permissions:
 
 Permissions
