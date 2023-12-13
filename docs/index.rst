@@ -74,7 +74,7 @@ from a CMS, but can also be easily customised and extended by developers to
 create a site that is tailored to their precise needs.
 
 This is the developer documentation. To get an overview on how to use django CMS,
-see the `django CMS User Guide <https://django-cms-user-guide.readthedocs.io/>`_.
+see the `django CMS User Guide <https://user-guide.django-cms.org/>`_.
 
 
 .. rst-class:: clearfix row
