@@ -93,6 +93,9 @@ djangocms-references          Retrieve objects that are related to a    supports
 Packages not (yet) supporting version 4
 ---------------------------------------
 
+Contributors are needed to add django CMS v4 support to the following packages:
+
+
 ============================= ========================================= ===================
 Package                       Description                               Status
 ============================= ========================================= ===================
@@ -113,8 +116,6 @@ djangocms-page-meta           Add SEO meta data to django CMS pages     not yet 
 ----------------------------- ----------------------------------------- -------------------
 djangocms-transfer            Export and import plugins as JSON         not yet supported
 ============================= ========================================= ===================
-
-Contributors are needed to add django CMS v4 support to the following packages:
 
 
 *****************
