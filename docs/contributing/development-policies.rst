@@ -88,14 +88,9 @@ For questions regarding the release process please join the channel and reach ou
 Long-Term Support Release
 ===========================
 
-..  versionchanged:: 3.7
-
-    django CMS 3.7 is the current active long term release.
-
-django CMS 3.4, surpassed by 3.7, was the first "LTS" ("Long-Term Support")
-release of the application. *Long-term support* means that this version will
-continue to receive security and other critical updates for 24 months after its
-first release.
+For the current Long-Term Support (LTS) release overview see :ref:`here <LTS>`. *Long-term
+support* means that this version will continue to receive security and other
+critical updates in alignment with the corresponding Django LTS release.
 
 Any updates it does receive will be backward-compatible and will not alter functional behaviour. This means that users
 can deploy this version confident that keeping it up-to-date requires only easily-applied security and other critical
@@ -108,35 +103,18 @@ updates, until the next LTS release.
 Branches
 ********
 
-..  versionchanged:: 3.3
-
-    Previously, we maintained a ``master`` branch (now deleted), and a set of ``support`` branches (now pruned, and
-    renamed ``release``).
-
-..  versionchanged:: 3.7
-
-    Simplified the description of the release branches and added additional
-    information for ``releases`` and ``release/4.0.x``. In general open PRs
-    against ``develop``.
-
 We maintain a number of branches on
 `our GitHub repository <https://github.com/django-cms/django-cms>`_:
 
-``develop``
+``develop-4``
     The default target branch for on-going development and new pull requests.
 
 ``release/x.y.z`` are the latest released versions of django CMS. Commits
-    are cherry-picked from ``develop`` and merged into ``release/x.y.z``
+    are cherry-picked from ``develop-4`` and merged into ``release/x.y.z``
     when suitable. We **officially support** the latest, highest released version
-    and the latest LTS (currently 3.7).
+    and the latest LTS.
 
-``release/4.0.x`` is an experimental branch and should not be considered
-    as the highest released version.
-
-``releases`` hosts the `releases.json` file to indicate the availability of new
-    django CMS versions when using `djangocms-admin-style <https://github.com/django-cms/djangocms-admin-style#configuration>`_.
-
-Please always open PR's against develop and indicate that they should be
+Please always open PR's against ``develop-4`` and indicate that they should be
 backported to the latest LTS release when necessary. Older branches are not
 supported any longer.
 
@@ -232,4 +210,3 @@ New lines should be added to the top of the list.
 
 
 .. _security@django-cms.org: mailto:security@django-cms.org
-.. _freenode: http://freenode.net/
