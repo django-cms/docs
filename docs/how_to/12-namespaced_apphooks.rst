@@ -120,9 +120,13 @@ Let us quickly create the new app:
 
    .. code-block::
 
-       class FaqConfig(models.Model):
+       from django.db import models
+       from django.utils.translation import gettext_lazy as _
+
+
+       class FaqConfigModel(models.Model):
            namespace = models.CharField(
-               _("instance namespace),
+               _("instance namespace"),
                default=None,
                max_length=100,
                unique=True,
@@ -139,10 +143,8 @@ Let us quickly create the new app:
 
    .. code-block::
 
-       from django.db import models
-
        class Entry(models.Model):
-           app_config = ForeignKey(FaqConfig, null=False)  # We need to assign an FAQ entry to its app instance
+           app_config = models.ForeignKey(FaqConfigModel, null=False)  # We need to assign an FAQ entry to its app instance
            question = models.TextField(blank=True, default='')
            answer = models.TextField()
 
@@ -151,3 +153,195 @@ Let us quickly create the new app:
 
            class Meta:
                verbose_name_plural = 'entries'
+
+4. **Create the FAQ CMS app**: In the apps's ``cms_apps.py`` create the ``FaqConfig``
+   class. This extensions tells django CMS how to get the app config instances.
+
+   .. code-block::
+
+       from django.core.exceptions import ObjectDoesNotExist
+       from django.urls import reverse
+
+       from cms.app_base import CMSApp
+       from cms.apphook_pool import apphook_pool
+
+       from .models import FaqConfigModel
+
+
+       @apphook_pool.register
+       class FaqConfig(CMSApp):
+           name = "FAQ"
+           app_config = FaqConfigModel
+
+           def get_urls(self, page=None, language=None, **kwargs):
+               return ["faq.urls"]
+
+           def get_configs(self):
+               return self.app_config.objects.all()
+
+           def get_config(self, namespace):
+               try:
+                   return self.app_config.objects.get(namespace=namespace)
+               except ObjectDoesNotExist:
+                   return None
+
+          def  get_config_add_url(self):
+               try:
+                  return reverse("admin:{}_{}_add".format(self.app_config._meta.app_label, self.app_config._meta.model_name))
+               except AttributeError:
+                   return reverse(
+                       "admin:{}_{}_add".format(self.app_config._meta.app_label, self.app_config._meta.module_name)
+                   )
+
+5. **Add models to the admin interface**: Its admin properties are defined in
+   ``admin.py``:
+
+   .. code-block::
+
+       from django.contrib import admin
+
+       from . import models
+
+
+       @admin.register(models.Entry)
+       class EntryAdmin(admin.ModelAdmin):
+           list_display = (
+               'question',
+               'answer',
+               'app_config',
+           )
+           list_filter = (
+               'app_config',
+           )
+
+
+       @admin.register(models.FaqConfigModel)
+       class FaqConfigAdmin(admin.ModelAdmin):
+           pass
+
+6. **Create a simple list view** in ``views.py``: For the views there is a catch: The
+   view will have to determine which app instance it is showing. Here's a short reusable
+   mixin to help with that:
+
+   .. code-block::
+
+       from django.views.generic import ListView
+       from django.urls import Resolver404, resolve
+       from django.utils.translation import override
+
+       from cms.apphook_pool import apphook_pool
+       from cms.utils import get_language_from_request
+
+       from . import models
+
+
+       def get_app_instance(request):
+           namespace, config = "", None
+           if getattr(request, "current_page", None) and request.current_page.application_urls:
+               app = apphook_pool.get_apphook(request.current_page.application_urls)
+               if app and app.app_config:
+                   try:
+                       config = None
+                       with override(get_language_from_request(request)):
+                           if hasattr(request, "toolbar") and hasattr(request.toolbar, "request_path"):
+                               path = request.toolbar.request_path  # If v4 endpoint take request_path from toolbar
+                           else:
+                               path = request.path_info
+                           namespace = resolve(path).namespace
+                           config = app.get_config(namespace)
+                   except Resolver404:
+                       pass
+           return namespace, config
+
+
+       class AppHookConfigMixin:
+           def dispatch(self, request, *args, **kwargs):
+               # get namespace and config
+               self.namespace, self.config = get_app_instance(request)
+               request.current_app = self.namespace
+               return super().dispatch(request, *args, **kwargs)
+
+           def get_queryset(self):
+               qs = super().get_queryset()
+               return qs.filter(app_config__namespace=self.namespace)
+
+
+       class IndexView(AppHookConfigMixin, ListView):
+           model = models.Entry
+           template_name = 'faq/index.html'
+
+           def get_paginate_by(self, queryset):
+               try:
+                   return self.config.paginate_by
+               except AttributeError:
+                   return 10
+
+7. **Declare the app's URLs** in ``urls.py``: .. code-block:
+
+   .. code-block::
+
+       from django.urls import path
+       from . import views
+
+
+       urlpatterns = [
+           path("", views.IndexView.as_view(), name='index'),
+       ]
+
+8. Finally, **create a template for the index view**: .. code-block:
+
+   .. code-block::
+
+       {% extends 'base.html' %}
+
+       {% block content %}
+           <h1>{{ view.config.title }}</h1>
+           <p>Namespace: {{ view.namespace }}</p>
+           <dl>
+               {% for entry in object_list %}
+                   <dt>{{ entry.question }}</dt>
+                   <dd>{{ entry.answer }}</dd>
+               {% endfor %}
+           </dl>
+
+           {% if is_paginated %}
+               <div class="pagination">
+                   <span class="step-links">
+                       {% if page_obj.has_previous %}
+                           <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                       {% else %}
+                           previous
+                       {% endif %}
+
+                       <span class="current">
+                           Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                       </span>
+
+                       {% if page_obj.has_next %}
+                           <a href="?page={{ page_obj.next_page_number }}">next</a>
+                       {% else %}
+                           next
+                       {% endif %}
+                   </span>
+               </div>
+           {% endif %}
+       {% endblock %}
+
+Put it all together
+~~~~~~~~~~~~~~~~~~~
+
+Finally, we add ``"faq"`` to ``INSTALLED_APPS``, then create and run migrations:
+
+.. code-block::
+
+    python -m manage makemigrations faq
+    python -m manage migrate faq
+
+Now we should be all set.
+
+Create two pages with the faq apphook, with different namespaces and different
+configurations. Also create some entries assigned to the two namespaces.
+
+You can experiment with the different configured behaviours (in this case, only
+pagination is available), and the way that different Entry instances can be associated
+with a specific apphook.
