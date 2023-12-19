@@ -295,8 +295,7 @@ Let us quickly create the new app:
        {% extends 'base.html' %}
 
        {% block content %}
-           <h1>{{ view.config.title }}</h1>
-           <p>Namespace: {{ view.namespace }}</p>
+           <h1>Namespace: {{ view.namespace }}</h1>
            <dl>
                {% for entry in object_list %}
                    <dt>{{ entry.question }}</dt>
