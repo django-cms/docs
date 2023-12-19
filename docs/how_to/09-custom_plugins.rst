@@ -11,7 +11,7 @@ The simplest plugin
 
 We'll start with an example of a very simple plugin.
 
-You may use ``python manage.py startapp`` to set up the basic layout for your
+You may use ``python -m manage startapp`` to set up the basic layout for your
 plugin app (remember to add your plugin to ``INSTALLED_APPS``). Alternatively, just add a file called ``cms_plugins.py`` to an
 existing Django application.
 
@@ -87,7 +87,7 @@ Since plugin modules are found and loaded by django's importlib, you might
 experience errors because the path environment is different at runtime. If
 your `cms_plugins` isn't loaded or accessible, try the following::
 
-    $ python manage.py shell
+    $ python -m manage shell
     >>> from importlib import import_module
     >>> m = import_module("myapp.cms_plugins")
     >>> m.some_test_function()  # from the myapp.cms_plugins module
