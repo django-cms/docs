@@ -182,14 +182,14 @@ apphooks``. For example:
 
 .. code-block::
 
-    manage.py cms uninstall apphooks MyApphook MyOtherApphook
+    python -m manage cms uninstall apphooks MyApphook MyOtherApphook
 
 You can get a list of installed apphooks using the :ref:`cms-list-command`; in this
 case:
 
 .. code-block::
 
-    manage.py cms list apphooks
+    python -m manage cms list apphooks
 
 See the :ref:`Management commands reference <management_commands>` for more information.
 
